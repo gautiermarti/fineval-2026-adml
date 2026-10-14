@@ -1,0 +1,46 @@
+{
+  "team": "ADML",
+  "leaderboard_account": "gmarti",
+  "official_results_url": "https://www.finnlp2026sharedtask.info/",
+  "checked_on": "2026-10-15",
+  "tasks": {
+    "1": {
+      "task": 1,
+      "rows": 200,
+      "test_input_sha256": "30c8fac5bcbbd7fd18c003d0597c1db6c83d1c0a52881e518f6b3fb6c9bcc939",
+      "selected_csv_sha256": "424d4f95b749079e8d3551699d041fd01e183b4905246495c8c8b41d6e8e6100",
+      "leaderboard": "https://huggingface.co/spaces/FinNLP-Multilingual-Understanding/FinNLP2026GreekFinancialNER",
+      "name": "Greek financial NER",
+      "metric": "Entity F1",
+      "private_score": 0.9676,
+      "private_rank": "1st",
+      "public_score": 1.0
+    },
+    "2": {
+      "task": 2,
+      "rows": 50,
+      "test_input_sha256": "20432e29cc35119c2bcd8d0ea501ddb1c6726df19472ffec1d4aaa8399c52ebe",
+      "selected_csv_sha256": "d8d227ce7d7fce462dfe40268f2b53ea45a192bd7a33b89e1f87d4fe4dacdf9a",
+      "leaderboard": "https://huggingface.co/spaces/FinNLP-Multilingual-Understanding/finnlp2026subtask2japaneseicr",
+      "name": "Japanese implicit communication",
+      "metric": "Accuracy",
+      "private_score": 0.9714,
+      "private_rank": "Tied 1st",
+      "private_correct": 34,
+      "private_rows": 35,
+      "public_score": 1.0
+    },
+    "3": {
+      "task": 3,
+      "rows": 76,
+      "test_input_sha256": "bb9e866d073b4f6090f6c3dbc7994b401e0aabaa2ee706114de1cb78f244128b",
+      "selected_csv_sha256": "158ed1e8d3982dde1f0b25bd977ca3783334e8e0cff266aa6c9f31045c40fec4",
+      "leaderboard": "https://huggingface.co/spaces/FinNLP-Multilingual-Understanding/finnlp2026subtask3polyfiqa",
+      "name": "Multilingual financial QA",
+      "metric": "ROUGE-1 F1",
+      "private_score": 0.3726,
+      "private_rank": "2nd",
+      "public_score": 0.9994075564498099
+    }
+  }
+}

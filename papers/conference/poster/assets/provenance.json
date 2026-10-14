@@ -1,0 +1,19 @@
+{
+  "asset": "emnlp_2026_logo_v1.png",
+  "source_page": "https://2026.emnlp.org/",
+  "source_url": "https://2026.emnlp.org/assets/images/logos/emnlp_2026_logo_v1.png",
+  "retrieved_on": "2026-10-14",
+  "purpose": "Identify the conference hosting the FinNLP workshop on an author poster",
+  "source_pixels": [
+    8703,
+    1516
+  ],
+  "modifications": "None; proportional display scaling only",
+  "sha256": "31440c235e0cd34f57830806abd2185d32c1536a9f0bf6cf275631796b672b6c",
+  "poster_placement_points": {
+    "top": 340,
+    "width": 600,
+    "right_margin": 72
+  },
+  "effective_dpi": 1044.36
+}

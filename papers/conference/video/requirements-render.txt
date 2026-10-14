@@ -1,0 +1,6 @@
+reportlab==4.1.0
+python-pptx==1.0.2
+Pillow==12.3.0
+numpy==2.4.6
+soundfile==0.14.0
+av==18.0.0

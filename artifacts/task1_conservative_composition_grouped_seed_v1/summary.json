@@ -1,0 +1,26 @@
+{
+  "validation_rows": 80,
+  "policy_order": [
+    "annotation_operation",
+    "structural_repair",
+    "high_confidence_union"
+  ],
+  "all_component_gates_selected_without_validation_labels": true,
+  "incumbent_macro_entity_f1": 0.9208310439560439,
+  "composed_macro_entity_f1": 0.9331570512820513,
+  "delta": 0.012326007326007329,
+  "rows_improved": 4,
+  "rows_harmed": 0,
+  "type_deltas": {
+    "ΠΡΟΣΩΠΟ": 0.05138339920948609,
+    "ΟΡΓΑΝΙΣΜΟΣ": 0.026153603034134054,
+    "ΤΟΠΟΘΕΣΙΑ": 0.021505376344086002
+  },
+  "bootstrap_p05": 0.002747252747252747,
+  "bootstrap_p50": 0.011492673992673997,
+  "bootstrap_p95": 0.024285714285714292,
+  "bootstrap_probability_gain": 0.9842,
+  "two_seed_confirmed": true,
+  "two_seed_confirmation_required": false,
+  "public_test_used": false
+}

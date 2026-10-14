@@ -1,0 +1,144 @@
+FinNLP 2026  /  EMNLP  /  Budapest  /  28 October 2026
+TEAM ADML
+ADML at the FinEval 2026:
+Version-Aware Retrieval and Grounded Sparse Editing
+for Multilingual Financial QA
+Gautier Marti¹  ·  Khaled AlNuaimi¹˒²
+¹ ADIA     ² Khalifa University
+Agent-led research across three tasks, with financial QA as a case study
+Greek financial NER
+1st
+Entity F1  0.9676
+OFFICIAL PRIVATE RESULT
+Japanese implicit communication
+Tied 1st
+Accuracy  0.9714 · 34/35
+OFFICIAL PRIVATE RESULT
+Multilingual financial QA
+2nd
+ROUGE-1 F1  0.3726
+OFFICIAL PRIVATE RESULT
+Extensive research led to simple final submissions.
+The agent built and tested models; the evaluation ultimately favored exact retrieval and explicit rules.
+01
+The research process
+An agent-led workflow implemented experiments, checked evidence and recorded failed hypotheses.
+Audit
+Data, metric, provenance
+Hypothesize
+Target a failure mode
+Implement
+Models and experiments
+Evaluate
+Groups, seeds, time
+Keep or reject
+Log evidence; iterate
+Promotion required independent evidence: entity/source/company groups, seed checks, harm counts and temporal confirmation.
+209
+research scripts
+32
+Python modules
+99
+test files
+25
+preregistration documents
+Repository snapshot: 340 Python files; 48,468 physical lines including tests. These measure code scope, not experiment count or productivity.
+02
+Three systems developed for new inputs
+TASK 1 · GREEK NER
+Repair spans conservatively
+Greek BERT, Greek Legal BERT, XLM-R, GLiNER
+Domain adaptation; numeric rules; nested spans;
+annotation-operation learning; cross-seed consensus.
+Entity-linked folds; count corrections and newly introduced
+errors.
+TASK 2 · JAPANESE ICR
+Model commitment, not sentiment
+Tohoku BERT, Rinna RoBERTa, ModernBERT,
+Nemotron 9B
+Ordinal decoding/losses; EDINET adaptation; NLI transfer;
+rationale supervision; expert routing.
+Source-held-out folds; independent confirmation of apparent
+gains.
+TASK 3 · MULTILINGUAL QA
+Compile facts, then test edits
+Eva-4B; Qwen 27B, 35B and 57B model trials
+Typed fact graphs; constrained planning and realization;
+evidence filtering; sparse answer edits.
+Company/report groups and older-to-newer packet
+confirmation.
+03
+QA: candidate quality versus selection
+Grounded compiler: every number has a source or derivation.
+Parse
+Statements + news
+Type facts
+Period, unit, value
+Validate
+Source + arithmetic
+Realize
+≤100 words
+Historical QA · 192 rows · macro ROUGE-1 F1
+Grounded baseline
+0.3652
+Sparse-edit oracle
+0.4030
+Deployable selector
+0.3652
+0.0
+0.1
+0.2
+0.3
+0.4
+Oracle gain: +0.0377, using reference answers to choose the edit. This is candidate
+headroom, not a deployable score.
+The nested selector abstained on every row. Under both time and company shift,
+another selector changed 4 rows and harmed all 4.
+04
+The gates rejected plausible gains
+Selected examples; results use different tasks and evaluation sets.
+Entity-aware adaptation · NER
+STOP
+0.8064 → 0.7580
+Fold-0 macro entity F1. All entity types regressed; stop before
+the remaining folds.
+ModernBERT replacement · ICR
+REJECT
+0.6917 → 0.6245
+Source-held-out accuracy. All five folds worsened; 14
+corrections, 31 new errors.
+Qwen 35B fact filtering · QA
+REJECT
+0.7454 → 0.7638
+Fact-set F1 improved, but one company's score fell 0.0544; the
+safety gate failed.
+Conservative span consensus · NER
+KEEP
+0.9208 → 0.9332
+80-row validation: 4 corrections, 0 new errors. Two-seed
+support; retained for development.
+NER validation was repeatedly inspected; the retained gain is development evidence, not a fresh
+hidden-test result.
+05
+Test release changed what the benchmark rewarded
+11 August: test inputs audited.  17 August: external-data permission and public scores resolved the final choices.
+NER · exact retrieval
+200/200
+test queries matched earlier public inputs
+Final: retrieve full-query references.
+ICR · semantic rules
+4/15 → 15/15
+public correct: BERT → explicit-cue rubric
+New response style changed the choice.
+QA · exact retrieval
+0.9994 / 0.3726
+public (24) / private (52) ROUGE-1 F1
+76/76 queries matched public inputs.
+External public data were permitted. Selected inference was CPU-only, with no model or API calls.
+Benchmark success and generalization evidence can diverge.
+The QA score gap suggests reference-version shift; private references were unavailable.
+Our input-based systems handle new inputs, but private superiority over retrieval was not measured.
+Benchmarks: Plutus (EMNLP 2025); Ebisu (2026); MultiFinBen (ACL 2026). Methods/results: ADML FinEval system papers and experiment records.
+Papers, code & materials
+github.com/gautiermarti/fineval-2026-adml
+FinNLP-65  ·  FinNLP 2026  ·  ADML

@@ -1,0 +1,65 @@
+{
+  "title": "ADML at the FinEval 2026: Version-Aware Retrieval and Grounded Sparse Editing for Multilingual Financial QA",
+  "authors": [
+    "Gautier Marti",
+    "Khaled AlNuaimi"
+  ],
+  "target_seconds": 290,
+  "slides": [
+    {
+      "number": 1,
+      "title": "Three tasks. One research process.",
+      "paragraphs": [
+        "We entered all three FinEval tasks: Greek financial named entity recognition, Japanese implicit communication recognition, and multilingual financial question answering. ADML ranked first in Greek, joint first in Japanese, and second in question answering.",
+        "This FinNLP presentation accompanies our question answering poster. It covers the agentic research workflow, the models we tried across all three tasks, and the systems we submitted. Our results were strong, but the final systems were much simpler than those we had spent the competition developing."
+      ]
+    },
+    {
+      "number": 2,
+      "title": "How we ran the experiments",
+      "paragraphs": [
+        "Our agentic research loop started with the data and the scoring code. Reproduce a baseline, inspect failures, propose a hypothesis, implement an experiment, and decide whether to keep the change. We recorded negative results alongside improvements.",
+        "Validation reflected the task: related entity surfaces for Greek, held out sources for Japanese, and held out companies or reporting periods for question answering. We tracked the average score, which examples were corrected, which were harmed, and whether improvements carried over to another source or period.",
+        "The archived repository contains two hundred and nine scripts, thirty two source modules, ninety nine test files, and twenty five preregistration documents."
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Models we tried and changes we kept",
+      "paragraphs": [
+        "For Greek entities, we explored Greek BERT, legal encoders, X L M R, and G liner proposals, with separate numeric processing and conservative span repairs. For Japanese intent, we investigated BERT ensembles, RoBERTa, Modern BERT, and a nine billion parameter Nemotron model, alongside domain adaptation and ordinal decoding.",
+        "For question answering, trials included an Eva four billion parameter adapter, Qwen answer generators, and larger fact planners. The structured approach tracked periods, units, arithmetic, and evidence before considering small answer edits.",
+        "We rejected many candidates after validation. Modern BERT made every Japanese validation fold worse. A Qwen fact filter improved average fact set F one, but harmed one issuer beyond our allowed threshold. Conservative Greek span consensus corrected four validation examples without introducing a new error. We had inspected that validation set repeatedly, so these gains still needed confirmation on fresh data."
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Choosing which answers to edit",
+      "paragraphs": [
+        "The question answering experiment illustrates the central difficulty. On one hundred and ninety two historical examples, the grounded baseline scored about point three six five in ROUGE one. An oracle, allowed to see the reference answer and choose the best sparse edit, reached about point four zero three.",
+        "Our nested company held out selector chose to make no edits, retaining the baseline. In a separate temporal transfer test, all four changed answers became worse. The oracle showed that useful edits existed. Choosing them for a new company or reporting period remained the problem, and keeping the baseline was the best decision from validation."
+      ]
+    },
+    {
+      "number": 5,
+      "title": "What the benchmark ultimately rewarded",
+      "paragraphs": [
+        "The final data audit changed our competition strategy. Every Greek test query, and all seventy six question answering queries, matched earlier public inputs. The organizers allowed external data, so we retrieved the matching public reference answers for those two tasks. For Japanese intent, we used deterministic rules based on explicit commitment and refusal cues.",
+        "The final runner used no neural model. Question answering scored almost one on the public portion and point three seven three on the private portion, placing second. The gap suggests that the reference answers changed between versions. We could not check this directly because the private reference answers were unavailable."
+      ]
+    },
+    {
+      "number": 6,
+      "title": "What we learned",
+      "paragraphs": [
+        "The disappointment was that the final benchmark gave us little opportunity to test the models we had developed for new inputs. We submitted retrieval for Greek and question answering, and a semantic rubric for Japanese. The hidden test therefore left the broader model work unresolved.",
+        "For future tasks, we would keep three practices: check the data and reference versions, test on new sources and periods, and keep a record of failed experiments. Agents helped us build and test candidates, and the validation results guided what we kept. Thank you."
+      ]
+    }
+  ],
+  "pronunciations": {
+    "FinNLP": "Fin N L P",
+    "NLP": "N L P",
+    "ADML": "A D M L"
+  }
+}

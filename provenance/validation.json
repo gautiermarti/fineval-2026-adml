@@ -1,0 +1,41 @@
+{
+  "checked_on": "2026-10-15",
+  "selected_environment": {
+    "python": "3.12.3",
+    "pandas": "3.0.5",
+    "pyarrow": "25.0.0",
+    "pytest": "9.1.1",
+    "fresh_virtual_environment": true
+  },
+  "release_tests": {
+    "passed": 21,
+    "failed": 0
+  },
+  "research_tests": {
+    "passed": 358,
+    "skipped_missing_external_inputs": 7,
+    "failed": 0,
+    "environment": "Existing research environment; copied public source tree"
+  },
+  "submission_replay": {
+    "all_three_csvs_match_original_sha256": true,
+    "organizer_test_files": "Downloaded afresh from pinned public Hugging Face revisions",
+    "historical_references": "Imported from existing local snapshots after SHA-256 verification"
+  },
+  "poster": {
+    "qr_decoded_from_pdf": true,
+    "dimensions": "A0 portrait, 841 x 1189 mm",
+    "fonts_embedded": true,
+    "graphics_inside_10mm_safe_area": true
+  },
+  "privacy_review": {
+    "gitleaks_version": "8.30.1",
+    "staged_tree_findings": 0,
+    "extracted_document_findings": 0,
+    "personal_contact_emails_removed_from_public_manuscripts": true,
+    "pdf_pptx_email_or_home_path_findings": 0,
+    "preview_images_exif_fields": 0,
+    "git_history": "Fresh repository; no source-repository history imported",
+    "video_metadata_email_or_home_path_findings": 0
+  }
+}

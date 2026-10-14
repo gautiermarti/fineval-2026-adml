@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "Please cite the relevant system paper when using its method, and this companion repository for the released implementation and materials."
+title: "ADML at FinEval 2026: Research Code, System Papers and Presentation Materials"
+type: software
+authors:
+  - family-names: Marti
+    given-names: Gautier
+  - family-names: AlNuaimi
+    given-names: Khaled
+version: 1.0.0
+date-released: 2026-10-15
+keywords:
+  - financial NLP
+  - named entity recognition
+  - implicit communication
+  - financial question answering
+  - reproducibility
+repository-code: "https://github.com/gautiermarti/fineval-2026-adml"

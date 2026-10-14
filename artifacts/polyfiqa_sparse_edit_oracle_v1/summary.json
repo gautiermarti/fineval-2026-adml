@@ -1,0 +1,76 @@
+{
+  "matched_rows": 192,
+  "baseline_rouge": 0.3652420227711404,
+  "sparse_edit_oracle_rouge": 0.40295015643699883,
+  "oracle_delta": 0.03770813366585849,
+  "oracle_improved_rows": 139,
+  "mean_valid_candidates": 7.984375,
+  "oracle_choice_families": {
+    "baseline": 53,
+    "evidence": 46,
+    "delete_sentence": 36,
+    "core": 11,
+    "full": 29,
+    "first_sentence": 17
+  },
+  "by_family": {
+    "easy:balance": {
+      "rows": 24,
+      "baseline": 0.43859261543801864,
+      "oracle": 0.48921605136210267,
+      "delta": 0.050623435924084005,
+      "improved_rows": 13
+    },
+    "easy:cash": {
+      "rows": 24,
+      "baseline": 0.33661738701704386,
+      "oracle": 0.3845027183926284,
+      "delta": 0.047885331375584594,
+      "improved_rows": 20
+    },
+    "easy:rd": {
+      "rows": 24,
+      "baseline": 0.4301336552338764,
+      "oracle": 0.4471075463449153,
+      "delta": 0.0169738911110388,
+      "improved_rows": 5
+    },
+    "easy:revenue": {
+      "rows": 24,
+      "baseline": 0.3559528644221557,
+      "oracle": 0.4260238501637092,
+      "delta": 0.0700709857415535,
+      "improved_rows": 22
+    },
+    "expert:allocation": {
+      "rows": 24,
+      "baseline": 0.33421486566427533,
+      "oracle": 0.3630169244444501,
+      "delta": 0.028802058780174836,
+      "improved_rows": 15
+    },
+    "expert:capex": {
+      "rows": 24,
+      "baseline": 0.38081112298884623,
+      "oracle": 0.40555959600079844,
+      "delta": 0.02474847301195217,
+      "improved_rows": 19
+    },
+    "expert:margin": {
+      "rows": 24,
+      "baseline": 0.30925494950943927,
+      "oracle": 0.33179168262440323,
+      "delta": 0.02253673311496399,
+      "improved_rows": 22
+    },
+    "expert:revenue": {
+      "rows": 24,
+      "baseline": 0.33635872189546756,
+      "oracle": 0.37638288216298355,
+      "delta": 0.040024160267516054,
+      "improved_rows": 23
+    }
+  },
+  "selection_claim": false,
+  "current_hidden_answers_used": false
+}

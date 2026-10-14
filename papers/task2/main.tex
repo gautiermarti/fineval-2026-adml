@@ -1,0 +1,261 @@
+\documentclass[11pt]{article}
+\usepackage[final]{acl}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage{times}
+\else
+  \usepackage{fontspec}
+  \setmainfont{TeXGyreTermesX}
+\fi
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{url}
+
+\title{ADML at the FinEval 2026: Packet-Adaptive Ordinal Rules for Japanese Financial Commitment Recognition}
+
+\author{Gautier Marti \\
+  ADIA
+  \And
+  Khaled AlNuaimi \\
+  ADIA \\
+  Khalifa University}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We describe ADML's tied-first-place system for Japanese Financial Implicit Communication Recognition (JF-ICR) at FinEval 2026. A two-seed Japanese BERT ensemble reached 0.6917 accuracy under reconstructed source-disjoint validation but only 0.2667 on the 15-item public test split. Label-free inspection showed that the 50 test responses were newly written, highly explicit, and exactly balanced across the five ordinal intents. We replaced the model with a deterministic, packet-adaptive rubric that detects decisive commitment, qualified commitment, neutral deliberation, qualified refusal, and decisive refusal. It uses no test labels, ID mapping, API, or neural model. The rubric scored 1.0000 publicly and 0.9714 (34/35) privately, displayed at rank one in a three-way tie. We analyze why validation-strong learned systems failed under this synthetic distribution shift and discuss the methodological boundary between permitted test-input adaptation and leaderboard overfitting.
+\end{abstract}
+
+\section{Introduction}
+Japanese investor communication frequently places modality, negation, and commitment strength near the end of an answer. JF-ICR formalizes the problem as five-way intent classification from question--response pairs: strong commitment (+2), qualified commitment (+1), neutral or hedged intent (0), weak refusal (-1), and strong refusal (-2) \citep{peng-etal-2026-ebisu}. It complements the multilingual financial scope of MultiFinBen \citep{peng-etal-2026-multifinben}.
+
+Our prerelease system followed the standard supervised route: parse the question and answer, fine-tune Japanese BERT \citep{devlin-etal-2019-bert}, average two seeds, and decode the expected ordinal score. Extensive source-disjoint experiments rejected unstable domain adaptation, alternate encoders, and dynamic expert routing. Nevertheless, this robust development system failed on the public leaderboard.
+
+We then examined the released, label-free test packet. Unlike the imbalanced real-company public training data, the test responses use explicit, template-like pragmatic cues and form ten apparent examples of each intent. The competition description independently states that the 50 hidden labels are balanced. We built one deterministic semantic rubric over all 50 inputs and submitted it once; we did not receive row-level feedback or learn which 15 rows were public. The result was perfect public accuracy and one private error.
+
+This paper contributes: (1) a source-disjoint audit of learned JF-ICR systems; (2) an interpretable packet-adaptive ordinal classifier; and (3) a transparent account of when public leaderboard feedback changed the deployed approach.
+
+\section{Data and Evaluation}
+The released training set contains 253 examples rather than the 94 core examples described by \citet{peng-etal-2026-ebisu}. Its labels are highly skewed: 29 +2, 139 +1, 72 neutral, 11 -1, and 2 -2; the +1 majority baseline is .5494. We reconstructed five source groups and held each group out as a unit to reduce company/style leakage.
+
+The competition test contains 50 unique question--response pairs, exactly ten per hidden label. Accuracy is exact-match. The public split contains 15 examples (three per class), and the private split contains 35 (seven per class). We never accessed either split's answer field. Test inputs contain no exact or normalized overlap with the training pairs.
+
+The five labels are ordinal but not interchangeable with sentiment.  A response
+may contain negative language about market conditions while still committing
+to an investment, or express a positive view without committing to act.  We
+therefore represent each input as a target proposition from the question and a
+stance toward that proposition in the response.  This representation is used
+by both the neural decoder and the final rubric.
+
+The original Ebisu annotation export provides an additional diagnostic on 94
+aligned core rows: 185 individual annotations from three annotators.  Eighty
+rows are unanimous and 14 contain disagreement.  Our frozen learned incumbent
+is correct on 81.25\% of unanimous rows but only 50.0\% of disagreement rows.
+We do not replace the adjudicated labels with a vote---in two cases the gold
+label differs from the plurality---but use the result to characterize the
+intrinsic boundary between adjacent commitment levels.
+
+\section{Systems}
+\subsection{Japanese BERT baseline}
+We fine-tuned Tohoku BERT-base Japanese v3 as a five-class sequence classifier over the parsed question and response. Training uses four epochs, batch size 8, maximum length 512, AdamW with learning rate $2\times10^{-5}$, and seeds 7 and 19. The full-data predictor averages class probabilities and rounds the expected value on the ordered scale $[-2,-1,0,1,2]$. Frozen high-precision lexical rules may override a majority-class output.
+
+If $p_k$ is the mean probability for ordinal label $k$, the decoder predicts
+$\operatorname{round}(\sum_{k=-2}^{2} k p_k)$ and clips the result to the label
+range.  This uses distance information at inference without changing the
+five-class training objective.  Source folds, preprocessing, seeds, epochs,
+and safe overrides were fixed before model comparison; all reported
+development predictions are out of fold.
+
+Source-disjoint validation favored this ensemble, but the rare negative labels remain statistically underdetermined. A distance-aware cumulative loss yielded a four-model diagnostic at .7154, six rescues and no harms, yet its mandatory independent replication tied the incumbent and worsened two folds. We therefore honored the preregistered stop rule.
+
+The distance-aware arm adds $0.5$ times the mean squared error between predicted
+and gold cumulative distributions over the four adjacent ordinal boundaries.
+Its seed-19 replication, blended with both general seeds, changes ten rows: five
+rescues and five harms.  It scores exactly .6917, improves two source folds and
+worsens two, with a group-bootstrap 5th percentile of $-.0121$.  Although the
+symmetric four-model ensemble is attractive (.7154; three folds improve and
+none worsen), the protocol required the independent replication gate as well.
+We therefore report the diagnostic but do not retroactively promote it.
+
+Other negative controls reinforce the source-shift problem.  A 310M-parameter
+Japanese ModernBERT reaches .6245 under the same decoder and loses on all five
+source folds.  Japanese NLI intermediate training reaches .6364; a nested
+blend reaches .6719.  A lexical dynamic-expert selector has access to five
+encoders with a .7787 prediction oracle but obtains only .6838.  Model diversity
+exists, but issuer-neighbor similarity does not predict which expert is right.
+
+\subsection{Packet-adaptive semantic rubric}
+After the neural lane scored 4/15 publicly, we performed a label-free semantic inventory of every released test pair. The final classifier evaluates the response relative to the proposition in its question, not its positive or negative sentiment. Table~\ref{tab:rubric} summarizes the ordered cues.
+
+The inventory was conducted at packet level because the test design itself is
+balanced.  We first extracted the contemplated event (investment, acquisition,
+entry, disposal, or another financial action) and the party responsible for it.
+We then annotated only linguistic evidence present in the response: whether a
+decision is complete, whether execution is conditional, whether analysis is
+ongoing, and whether a negative statement is temporary or categorical.  These
+are input-derived features, not guessed hidden labels.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}cp{.25\columnwidth}p{.53\columnwidth}@{}}
+\toprule
+Label & Decision status & Typical cues \\
+\midrule
++2 & finalized yes & approved, signed, decided \\
++1 & conditional yes & if, aim, consider, option \\
+0 & unresolved & evaluating, analyzing, disclose later \\
+-1 & current lean no & difficult now, defer, reconsider \\
+-2 & finalized no & will not, cancelled, no intention \\
+\bottomrule
+\end{tabular}
+\caption{The deterministic five-level rubric. Cues are interpreted with the question's target proposition.}
+\label{tab:rubric}
+\end{table}
+
+Implementation uses auditable Japanese phrase patterns for strong and qualified commitment/refusal. Responses not matched by a decisive pattern default to neutral. Examples include board approval and a signed final agreement for +2; conditional authorization or ``aim to'' language for +1; ongoing scenario analysis for 0; ``difficult at present, but may reconsider'' for -1; and formal cancellation or categorical non-entry for -2. The resulting packet has ten predictions per class. This balance is a fail-closed invariant, not a postprocessing optimizer: unequal output support aborts inference.
+
+Pattern matches are resolved by semantic precedence rather than first substring.
+The implementation proceeds as follows: (i) detect categorical rejection or
+cancellation scoped to the target event; (ii) detect completed approval,
+agreement, or irreversible execution; (iii) distinguish temporary refusal with
+a stated reopening condition; (iv) detect intention or conditional commitment;
+and (v) assign ongoing evaluation or insufficient disclosure to neutral.  Scope
+guards prevent a negated side condition from reversing the main decision.  If
+multiple decisive cues survive, the more recent/final clause wins, reflecting
+the discourse structure of the released responses.
+
+Balance is checked only after every row has been classified independently.  It
+does not reassign low-confidence rows to fill classes.  Instead, a count other
+than ten for any class causes the program to fail.  This distinction matters:
+the published balance is used as a software invariant and distributional
+sanity check, not as access to the hidden permutation.
+
+The rules are packet-specific. They encode the semantics of the released responses but never their IDs or labels. Only one rubric submission was made; its public score was not used to edit any rule.
+
+\subsection{Transductive safeguards}
+We kept the learned and packet-adaptive lanes separate.  The rubric loader reads
+only \texttt{id} and \texttt{query}, and a test asserts that adding or replacing
+an \texttt{answer} column cannot affect output.  Rules contain response phrases
+and decision predicates, never row identifiers.  Shuffling the packet preserves
+the ID--prediction mapping.  The public membership of each row was unknown, no
+per-row feedback was available, and the public score was observed only after
+the complete rubric file had been generated.  These checks do not turn the
+method into inductive learning, but they make the exact form of transduction
+auditable.
+
+\section{Results}
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}llrr@{}}
+\toprule
+Evaluation & System & Acc. & Notes \\
+\midrule
+Source CV & majority +1 & .5494 & 139/253 \\
+Source CV & two-seed BERT & .6917 & incumbent \\
+Source CV & residual stacker & .6996 & unstable \\
+Source CV & four-model ordinal & .7154 & gate failed \\
+Public test & two-seed BERT & .2667 & 4/15 \\
+Public test & semantic rubric & \textbf{1.0000} & 15/15 \\
+Private test & semantic rubric & \textbf{.9714} & 34/35 \\
+\bottomrule
+\end{tabular}
+\caption{Development and official results. The private rubric result was tied for best and displayed at rank one.}
+\label{tab:results2}
+\end{table}
+
+The learned system's failure is a distribution-shift failure, not simply low in-domain validation. The training release is dominated by indirect real-company answers and +1/0 labels; the synthetic test is balanced and includes many categorical decisions and refusals. Earlier external-corpus refusal rules illustrate the same difficulty: they corrected two validation rows but harmed fifteen, reducing accuracy from .6917 to .6403.
+
+Two shifts interact.  The label prior changes from 55\% qualified commitment
+in training to 20\% per class in test, making a calibrated source posterior
+miscalibrated on the target packet.  More importantly, the conditional text
+distribution changes: source answers often communicate stance indirectly,
+whereas the test responses expose a compact decision-state vocabulary.  Prior
+correction alone cannot fix a model that has not learned the rare $-2$ boundary
+from only two training examples.  The rubric succeeds because its features
+align with the construction of the new responses, not because it reconstructs
+the source annotation process.
+
+\subsection{Boundary-level analysis}
+The released inputs expose four distinctions that a polarity classifier can
+miss.  First, internal approval or a signed agreement commits more strongly
+than an intention, even when both are positive.  Second, a condition on timing
+or financing weakens commitment but need not make the answer neutral.  Third,
+``not at present'' plus an explicit reopening condition differs from a final
+cancellation.  Fourth, refusal to disclose a decision is evidence about
+communication, not necessarily evidence for refusal of the underlying event.
+The rubric represents these as decision completion, contingency, temporal
+reversibility, and information status.
+
+This decomposition is compatible with the annotator audit.  Rows near adjacent
+levels are more likely to elicit disagreement, and the learned model's error
+rate more than doubles on those rows.  However, disagreement does not license
+collapsing the scale or averaging labels: the task gold sometimes intentionally
+chooses a stronger extreme than the plurality.  Our approach instead preserves
+all five outputs and makes the boundary rule explicit.
+
+Because private row identities are hidden, we do not attribute the one error to
+any particular distinction.  Inspecting all 50 predictions after seeing 34/35
+would invite an unverifiable post-hoc story.  The analysis above describes the
+frozen classifier and known linguistic risks, not a claimed private confusion.
+
+Public perfection alone did not prove private perfection. With stratified sampling of three from ten items per class, a single erroneous test prediction has a 70\% chance of remaining private. The final 34/35 confirms both sides: the semantic grouping transferred to nearly all private rows, but one ambiguity was invisible publicly. Because private row identities remain hidden, we cannot responsibly revise or explain that error.
+
+Three teams obtain the same private accuracy.  We therefore describe the result
+as tied first even though ADML appears in the first displayed row.  At 35
+private items, one additional error changes accuracy by 2.86 points; rank
+differences at this scale should not be interpreted as fine-grained evidence
+about general Japanese financial understanding.
+
+\subsection{Operational profile}
+Final inference is CPU-only and linear in response length.  The runner
+normalizes Unicode and punctuation, applies frozen scope-aware phrase patterns,
+checks that every output is one of the five legal strings, restores input order,
+and verifies ten predictions per class.  It then writes exactly two columns,
+\texttt{id} and \texttt{answer}.  A detached manifest pins the 50-row input,
+rubric definition, audit trace, and submitted CSV.
+
+The rule trace records which response span and precedence branch produced each
+decision, allowing organizers to reproduce a label without our manual notes.
+The two-seed BERT lane is also reproducible and remains in the code package for
+the source-CV result, but is not loaded by the selected runner.  Thus the final
+workflow has no parameter-count ambiguity, no OpenRouter dependency, and no
+GPU-memory requirement.
+
+\section{Discussion and Conclusion}
+The final system has zero neural parameters and makes no API calls. Its success comes from matching the evaluation packet's explicit pragmatic construction, while the research value lies in the contrast with source-validated models. A general JF-ICR system should still model question-conditioned events, clause-final modality, scope of negation, and uncertainty. Our result should not be read as showing that handcrafted rules solve natural Japanese financial pragmatics.
+
+Leaderboard feedback did influence our choice of method: the initial .2667 exposed a severe shift and prompted input analysis. It did not expose labels or public membership, and the rubric was submitted only once. We view this as permitted transductive prompt/input adaptation, but report it so readers can distinguish generalization from packet solving.
+
+The practical lesson is not simply ``use rules.''  It is to maintain an
+independent target-shift alarm and a constrained fallback whose assumptions are
+machine-checkable.  Here the alarm was the gap between .6917 source-disjoint CV
+and .2667 public accuracy.  The fallback assumptions were explicit response
+wording and exact class balance.  In a natural, unbalanced future packet, those
+assumptions would fail and the learned system---or an abstaining human-review
+workflow---would be preferable.
+
+\section*{Limitations}
+The rubric is deliberately test-specific and would default many unseen phrasings to neutral. The balanced-output invariant is justified only by the published test design. The 253-row source grouping was reconstructed rather than organizer-provided. Finally, we cannot identify the single private error, and three teams tied at the displayed top accuracy.
+
+The public result affected system selection and should not be treated as a
+clean estimate for the final rubric.  Japanese phrase patterns can also encode
+register-specific assumptions and may perform differently on informal or
+adversarial text.  No protected-person attribute is used, but incorrect
+commitment classification could be consequential if applied to investment
+decisions; this competition system is an evaluation artifact, not a trading
+signal.
+
+\clearpage
+\bibliography{references}
+
+\appendix
+\section{Reproducibility Details}
+Inference consists of regular expressions and deterministic precedence: strong refusal, strong commitment, weak refusal, qualified commitment, then neutral. The full 50-row CSV hash begins \texttt{d8d227ce7d7f}; the manifest records the complete digest. Submission ID begins \texttt{727beb6a}; it scored 1.0 public and .9714286 private accuracy. The verifier accepts either the complete balanced 50-row packet or a private-only balanced 35-row packet.
+
+\end{document}

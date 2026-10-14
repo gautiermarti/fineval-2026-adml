@@ -1,0 +1,61 @@
+{
+  "experiment": "task1_entity_aware_adaptation_fold0",
+  "protocol_sha256": "59fdb499fff4f83771deacb028bd347b8514dbf7852826304e4ef5666fa14153",
+  "silver_summary_sha256": "8bb79760dbd8a83685927d4b58e1861734dc0d457ee3d047366b217e22dd83b2",
+  "arms": {
+    "base": {
+      "macro_entity_f1": 0.8063920454545455,
+      "entity_type_f1": {
+        "ΠΡΟΣΩΠΟ": 1.0,
+        "ΟΡΓΑΝΙΣΜΟΣ": 0.7562189054726368,
+        "ΤΟΠΟΘΕΣΙΑ": 0.7164179104477612
+      },
+      "predictions_sha256": "b54116b497e28049331a7aaec6b591442fa4e00f3a764db049581aeea4ae2cdf"
+    },
+    "matched_random_mlm": {
+      "macro_entity_f1": 0.7557167658730158,
+      "entity_type_f1": {
+        "ΠΡΟΣΩΠΟ": 1.0,
+        "ΟΡΓΑΝΙΣΜΟΣ": 0.7329842931937173,
+        "ΤΟΠΟΘΕΣΙΑ": 0.7384615384615385
+      },
+      "predictions_sha256": "761ad6665d25c9b85a7d7c4d2be1666e807ac2f4783c803eeca9e069980106c9"
+    },
+    "whole_entity_mlm": {
+      "macro_entity_f1": 0.7580214056776556,
+      "entity_type_f1": {
+        "ΠΡΟΣΩΠΟ": 0.8421052631578948,
+        "ΟΡΓΑΝΙΣΜΟΣ": 0.736842105263158,
+        "ΤΟΠΟΘΕΣΙΑ": 0.6666666666666666
+      },
+      "predictions_sha256": "26cb88742d9c0a3fe73e28834d5e8f26e956f4da5b85baabb45c34285c7ee5c6"
+    }
+  },
+  "stronger_control": "base",
+  "treatment_macro_deltas": {
+    "base": -0.04837063977688982,
+    "matched_random_mlm": 0.0023046398046397965
+  },
+  "treatment_type_deltas_vs_stronger_control": {
+    "ΠΡΟΣΩΠΟ": -0.1578947368421052,
+    "ΟΡΓΑΝΙΣΜΟΣ": -0.01937680020947885,
+    "ΤΟΠΟΘΕΣΙΑ": -0.04975124378109452
+  },
+  "rescues": 8,
+  "harms": 10,
+  "ties": 46,
+  "futility_gate": {
+    "macro_at_least_0_005_above_base": false,
+    "macro_at_least_0_005_above_matched_random_mlm": false,
+    "rescues_strictly_exceed_harms": false,
+    "at_least_two_types_nonnegative": false,
+    "no_type_regresses_more_than_0_01": false,
+    "corpus_and_provenance_checks_passed": true,
+    "passed": false
+  },
+  "decision": "stop",
+  "post_hoc_tuning_allowed": false,
+  "validation_used": false,
+  "public_test_used": false,
+  "hidden_test_used": false
+}

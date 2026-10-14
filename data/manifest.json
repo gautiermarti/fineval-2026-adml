@@ -1,0 +1,104 @@
+{
+  "checked_on": "2026-10-15",
+  "files": [
+    {
+      "group": "test",
+      "task": 1,
+      "path": "data/raw/test_release_20260817_hf/task1/test.parquet",
+      "url": "https://huggingface.co/datasets/FinNLP-Multilingual-Understanding/finnlp2026-subtask1-greek-ner/resolve/90acb5aee4e6ba830401b6d8a0d80d3b9d435e02/test.parquet",
+      "sha256": "30c8fac5bcbbd7fd18c003d0597c1db6c83d1c0a52881e518f6b3fb6c9bcc939",
+      "source_repository": "FinNLP-Multilingual-Understanding/finnlp2026-subtask1-greek-ner",
+      "revision": "90acb5aee4e6ba830401b6d8a0d80d3b9d435e02"
+    },
+    {
+      "group": "test",
+      "task": 2,
+      "path": "data/raw/test_release_20260817_hf/task2/test.parquet",
+      "url": "https://huggingface.co/datasets/FinNLP-Multilingual-Understanding/finnlp2026-subtask2-japanese-icr/resolve/22e745854af5d810077b81bdbad1f6cd5ca813af/test.parquet",
+      "sha256": "20432e29cc35119c2bcd8d0ea501ddb1c6726df19472ffec1d4aaa8399c52ebe",
+      "source_repository": "FinNLP-Multilingual-Understanding/finnlp2026-subtask2-japanese-icr",
+      "revision": "22e745854af5d810077b81bdbad1f6cd5ca813af"
+    },
+    {
+      "group": "test",
+      "task": 3,
+      "path": "data/raw/test_release_20260817_hf/task3/test.parquet",
+      "url": "https://huggingface.co/datasets/FinNLP-Multilingual-Understanding/finnlp2026-subtask3-polyfiqa/resolve/8377c6e8e2d10279f1e857e37ceab3ee313104ac/test.parquet",
+      "sha256": "bb9e866d073b4f6090f6c3dbc7994b401e0aabaa2ee706114de1cb78f244128b",
+      "source_repository": "FinNLP-Multilingual-Understanding/finnlp2026-subtask3-polyfiqa",
+      "revision": "8377c6e8e2d10279f1e857e37ceab3ee313104ac"
+    },
+    {
+      "group": "references",
+      "path": "data/raw/subtask1/train-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/TheFinAI/plutus-finner-numeric/resolve/main/data/train-00000-of-00001.parquet",
+      "sha256": "8195f2a8430fbe2f5ddd105ae022a2a8af80ef353c28664e2c97d4c91a8a2f24",
+      "source_repository": "TheFinAI/plutus-finner-numeric",
+      "revision": "main",
+      "access_check_20261015": "Anonymous repository metadata request returned HTTP 401; availability requires verification."
+    },
+    {
+      "group": "references",
+      "path": "data/raw/subtask1/validation-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/TheFinAI/plutus-finner-numeric/resolve/main/data/validation-00000-of-00001.parquet",
+      "sha256": "1dd14163fb81782e8e82fcb6437509956432cb4d2c8b06bcdf132fccbce19d84",
+      "source_repository": "TheFinAI/plutus-finner-numeric",
+      "revision": "main",
+      "access_check_20261015": "Anonymous repository metadata request returned HTTP 401; availability requires verification."
+    },
+    {
+      "group": "references",
+      "path": "data/external/plutus_finner_numeric/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/TheFinAI/plutus-finner-numeric/resolve/main/data/test-00000-of-00001.parquet",
+      "sha256": "fdfc51bad2bbe84f40a9061ddbb476971120038905c3cf03873839b35b183206",
+      "source_repository": "TheFinAI/plutus-finner-numeric",
+      "revision": "main",
+      "access_check_20261015": "Anonymous repository metadata request returned HTTP 401; availability requires verification."
+    },
+    {
+      "group": "references",
+      "path": "data/external/plutus_finner_text/train-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/TheFinAI/plutus-finner-text/resolve/main/data/train-00000-of-00001.parquet",
+      "sha256": "e02165bae337c4d4f465d297bea4dc74a3f99fbc5b0a955358299ff657819c8c",
+      "source_repository": "TheFinAI/plutus-finner-text",
+      "revision": "main",
+      "access_check_20261015": "Anonymous repository metadata request returned HTTP 401; availability requires verification."
+    },
+    {
+      "group": "references",
+      "path": "data/external/plutus_finner_text/validation-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/TheFinAI/plutus-finner-text/resolve/main/data/validation-00000-of-00001.parquet",
+      "sha256": "f1ad98216089445318e83eff7e8a04cef9fcc8fb86cb2288e9275180b9497a59",
+      "source_repository": "TheFinAI/plutus-finner-text",
+      "revision": "main",
+      "access_check_20261015": "Anonymous repository metadata request returned HTTP 401; availability requires verification."
+    },
+    {
+      "group": "references",
+      "path": "data/external/plutus_finner_text/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/TheFinAI/plutus-finner-text/resolve/main/data/test-00000-of-00001.parquet",
+      "sha256": "2fcf02878fd8fbfbec8e0a72ad5454fbb7828b6b43fe82d4f2647199929677bb",
+      "source_repository": "TheFinAI/plutus-finner-text",
+      "revision": "main",
+      "access_check_20261015": "Anonymous repository metadata request returned HTTP 401; availability requires verification."
+    },
+    {
+      "group": "references",
+      "path": "data/external/polyfiqa_easy_july/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/TheFinAI/PolyFiQA-Easy-July/resolve/1d9e77122d3176c05d14076c095ff6fc2c632d31/data/test-00000-of-00001.parquet",
+      "sha256": "f9a5c491d12cccd8ba0d25faf654df6f84eebc20276a73a0a6e003b5ec1ab0c8",
+      "source_repository": "TheFinAI/PolyFiQA-Easy-July",
+      "revision": "1d9e77122d3176c05d14076c095ff6fc2c632d31",
+      "access_check_20261015": "Anonymous repository metadata request returned HTTP 401; availability requires verification."
+    },
+    {
+      "group": "references",
+      "path": "data/external/polyfiqa_expert_july/test-00000-of-00001.parquet",
+      "url": "https://huggingface.co/datasets/TheFinAI/PolyFiQA-Expert-July/resolve/ab00ac3cb6f622710e13e9dab839b3d35e94cfee/data/test-00000-of-00001.parquet",
+      "sha256": "e2a822f84d49eda86583774c1ec7ca0993d22e3c5ba10ac2f9a25e2c7222925e",
+      "source_repository": "TheFinAI/PolyFiQA-Expert-July",
+      "revision": "ab00ac3cb6f622710e13e9dab839b3d35e94cfee",
+      "access_check_20261015": "Anonymous repository metadata request returned HTTP 401; availability requires verification."
+    }
+  ]
+}

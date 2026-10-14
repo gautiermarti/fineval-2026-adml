@@ -1,0 +1,1659 @@
+{
+  "exported_on": "2026-10-15",
+  "source_revision": "a2f820b1668a9361342575e1b87e14d4cc0c8376",
+  "source_files": [
+    {
+      "path": "src/fineval/__init__.py",
+      "source_sha256": "9387f399a18b36b38d632027c6cd6b196899230d8009092ae53e0a7fe978fad5"
+    },
+    {
+      "path": "src/fineval/expert.py",
+      "source_sha256": "e78429ef20435fd0a8bcf9fddf9214554566a11669cd67002e5d200efb72c66f"
+    },
+    {
+      "path": "src/fineval/finance.py",
+      "source_sha256": "c52f03abcdfeb83cc835db17b94340f814c976ef780eaca2e1b3fb1e7a6bd70c"
+    },
+    {
+      "path": "src/fineval/icr_anchors.py",
+      "source_sha256": "9df9dff0014093f9af4d998efe004fc5874c8fbd560c47bd4e6a42dfffdef8cc"
+    },
+    {
+      "path": "src/fineval/icr_dynamic_selection.py",
+      "source_sha256": "388e3af40c57ef92d05ecdc462814311fa0f83b7362d42a529d11b84942f0360"
+    },
+    {
+      "path": "src/fineval/icr_events.py",
+      "source_sha256": "f2870e508ff998c56811f2432892903c4a0d9ea37318cf0d97a3f79255e5d45c"
+    },
+    {
+      "path": "src/fineval/icr_functional_expressions.py",
+      "source_sha256": "72875b18720f3fe1486c04b352487c30a4f960a3b9af518298f0649a9de77f49"
+    },
+    {
+      "path": "src/fineval/icr_human_rationales.py",
+      "source_sha256": "e2fba01484252b051b53a33d2e1e0f98969da272254d75ef5ab11d58974d2f74"
+    },
+    {
+      "path": "src/fineval/icr_multitask.py",
+      "source_sha256": "636c0687d08b365809eceb21769c7fc44175fb96b13bb19da926277757c7d173"
+    },
+    {
+      "path": "src/fineval/icr_ordinal_loss.py",
+      "source_sha256": "499e9a57fd3b0c8747a349113cdcad7fce88a331a33799ffa2dbe4872894baa0"
+    },
+    {
+      "path": "src/fineval/icr_rationale_multitask.py",
+      "source_sha256": "259722e11e49399658ebe33c4c187b87276bc8cb8552af8a1de6b303ab851a2e"
+    },
+    {
+      "path": "src/fineval/icr_silver.py",
+      "source_sha256": "e6fd46b03f4e10580600ee2cb72ecc821ccc8ce7c4d0a8d8d8157589297e59bc"
+    },
+    {
+      "path": "src/fineval/icr_zunda.py",
+      "source_sha256": "aa6a3fce964943c014468281ef97cf182cb192b7ce1ad8df0030b61b1dea076d"
+    },
+    {
+      "path": "src/fineval/metrics.py",
+      "source_sha256": "c53441c0c5a4f1617e443e7bf4f48e98985d3f57e4947db7dfb07f3dc515ed0f"
+    },
+    {
+      "path": "src/fineval/ollama.py",
+      "source_sha256": "660b727268085e7613332e3b9d337794c139d11cda68cb6cd4df8a8799aebf1a"
+    },
+    {
+      "path": "src/fineval/openai_compatible.py",
+      "source_sha256": "6db4354dc95445689c113fb5c98ed1c0a013d3cc1326287c7f93b3884bee9d36"
+    },
+    {
+      "path": "src/fineval/parsing.py",
+      "source_sha256": "55dfc2cd3d324195c20aa30b39dcedbd8e2eaf8ac67651a5ba35a4b8d829c8ba"
+    },
+    {
+      "path": "src/fineval/polyfiqa_delex.py",
+      "source_sha256": "90f7c2cacd606cf58820cac0ff01ffd3d7a40014ecf32d27894315105ddf14dc"
+    },
+    {
+      "path": "src/fineval/polyfiqa_edits.py",
+      "source_sha256": "0efbbf90354865cb643f9aea03f40d33032f0a10461e83b474f90542fa4a9612"
+    },
+    {
+      "path": "src/fineval/polyfiqa_entailment.py",
+      "source_sha256": "4d245744429c75df1632cec85276b1d9a7b7b8531ecc65af5a6c3fc15cc1ef58"
+    },
+    {
+      "path": "src/fineval/polyfiqa_facts.py",
+      "source_sha256": "bea78ea9e20a35ac21329877c5cf2a0cc81c24b8afbf4493fefe74d8fad99f6d"
+    },
+    {
+      "path": "src/fineval/polyfiqa_family_gate.py",
+      "source_sha256": "7bcd220ead69018b74d32c4be3afdd3d8ee3430bb9f31145cee7e77423b8e609"
+    },
+    {
+      "path": "src/fineval/polyfiqa_programs.py",
+      "source_sha256": "03b40cf547ded46700230c5ed15696f933f261ac83c7095664a4acf34e91c5ae"
+    },
+    {
+      "path": "src/fineval/polyfiqa_source_mbr.py",
+      "source_sha256": "38db1c0cadeb5ff0d7d9f5b5f84dfc13c766330fb381c71ccdee04493303f99a"
+    },
+    {
+      "path": "src/fineval/polyfiqa_translation.py",
+      "source_sha256": "fbc30bf1ae26b7b7f15d5702bf7c9e79239f3f5b442f993df4784472c79aa252"
+    },
+    {
+      "path": "src/fineval/tables.py",
+      "source_sha256": "7c75ce733a7bb53b5a499e5abffc93a3aec047a57e55ad00efb5e2d0e3db71d3"
+    },
+    {
+      "path": "src/fineval/task1_annotation_ops.py",
+      "source_sha256": "64cb31e379ed0dc9a918c71cffc94821e9343168f1ce2d5e395e4e77a7105870"
+    },
+    {
+      "path": "src/fineval/task1_folds.py",
+      "source_sha256": "ed9e6e82fe0ffa9ff504008cb7063ad8fae74a9f0c671914ad2c8ed2b79cd3cb"
+    },
+    {
+      "path": "src/fineval/task1_operation_consensus.py",
+      "source_sha256": "5568cc7c4429daac5cb7ddfd288de17c81c55a0575a320892e57970a8d667e20"
+    },
+    {
+      "path": "src/fineval/task1_policy_composition.py",
+      "source_sha256": "a121f922a41cf5f239fe3dedd9a47e96c6d0620ecfb7df5444f4812760544e53"
+    },
+    {
+      "path": "src/fineval/task1_span_surgery.py",
+      "source_sha256": "24c7689d37b3720bd11d123aefb16943bcfceaeeed6b5f2e2e6dcd0f4c69d2a1"
+    },
+    {
+      "path": "src/fineval/validation.py",
+      "source_sha256": "b617d511fc6bb909e07327171ecbdb0ce17b30f1802bb515a5dd46dafc2bc198"
+    },
+    {
+      "path": "scripts/ablate_polyfiqa_easy_retrieval.py",
+      "source_sha256": "6da8e0a14620e793f691814231f51add9fd30a88cfd488373779edee60eb0a43"
+    },
+    {
+      "path": "scripts/ablate_polyfiqa_revenue_realization.py",
+      "source_sha256": "a0d6ad0fdc2651e548e45d2dc90fa33924a9639d66367ab3898f85e50062c4e2"
+    },
+    {
+      "path": "scripts/ablate_polyfiqa_template_phrases.py",
+      "source_sha256": "76fee0100c247c08291246f4351bde9dec35b488bc9bf206e4e847407eb38719"
+    },
+    {
+      "path": "scripts/adapt_icr_edinet_mlm.py",
+      "source_sha256": "961277c0edc408f5f4d823fe187f995a32cfc4043dff4f2499b17387e9ddc54f"
+    },
+    {
+      "path": "scripts/analyze_icr_gate_robustness.py",
+      "source_sha256": "9a968a195290a6eaa1c66113a5592ff525888674dfb78c4a39105e3c3df47b80"
+    },
+    {
+      "path": "scripts/analyze_icr_source_similarity.py",
+      "source_sha256": "d554df553f9231e02114a4c83e09886fbbdb5438966d06101e79135bbd34b4a4"
+    },
+    {
+      "path": "scripts/analyze_polyfiqa_errors.py",
+      "source_sha256": "792b82e97d43a76d9fdd674e7de1dc3bfef3835a14fc3b0502afafb74195fb31"
+    },
+    {
+      "path": "scripts/analyze_polyfiqa_phrase_robustness.py",
+      "source_sha256": "9fa65c1a46663c34507c2bb1b03f9bd28c6532d635433827dddd8530472cceb9"
+    },
+    {
+      "path": "scripts/annotate_icr_edinet_outlook.py",
+      "source_sha256": "08146413a733fb88f003d108501be076e51993c633a37ea81ef0183d09742f3c"
+    },
+    {
+      "path": "scripts/audit_ebisu_annotation_disagreement.py",
+      "source_sha256": "34cada823b2434b19d7881a5c84f16dfdb73710f43ef364e7fd1246ea16e8cc8"
+    },
+    {
+      "path": "scripts/audit_icr_distribution.py",
+      "source_sha256": "1582c587a1336055ee9b6670490abdb39fdfebddc4eb0f5250038e726f5ea187"
+    },
+    {
+      "path": "scripts/audit_icr_edinet_exclusions.py",
+      "source_sha256": "99a19d97d0a54a352bab2feb30a010d229f55eb7b8c05607498c5d47eb32ebe4"
+    },
+    {
+      "path": "scripts/audit_icr_hidden_overlap.py",
+      "source_sha256": "1da3289f45ae1b48bb825aec49fc922f8ab919c9fc6330e886ff75c276350cca"
+    },
+    {
+      "path": "scripts/audit_organizer_drive.py",
+      "source_sha256": "09f92c89f636f5121e3f6643cfaa61a9200b18a4f39bc293250d38c8e62b60ed"
+    },
+    {
+      "path": "scripts/audit_organizer_site.py",
+      "source_sha256": "1a74c5a2d54b9913d689f9e51f6e618847af63a7dca5d5f835bebcc94356b4c1"
+    },
+    {
+      "path": "scripts/audit_polyfiqa_grounding.py",
+      "source_sha256": "1801da7c52e6e51089dc8fd9cadf274c0e34053a753e410229df09e53536c98f"
+    },
+    {
+      "path": "scripts/audit_polyfiqa_hidden_overlap.py",
+      "source_sha256": "a5277f4cc32aaa2cffbe13c02a5386cdd40bea1a5ab39d3794dc9db23a442194"
+    },
+    {
+      "path": "scripts/audit_polyfiqa_references.py",
+      "source_sha256": "642e78fe1ea013105bc53d5c4de972897ec01cb95468e94d3b6b2ce2f9bd60ed"
+    },
+    {
+      "path": "scripts/audit_polyfiqa_translation_opportunity.py",
+      "source_sha256": "450179a5891bf379394576d51c0a91491cf3f89aa3984dbabeba44fe47acba9f"
+    },
+    {
+      "path": "scripts/audit_public_data.py",
+      "source_sha256": "5cd52770eebc636d87dd823b320b70c7dd47c8245ed6214268aa7690b7783fc7"
+    },
+    {
+      "path": "scripts/audit_task1_corpus_retrieval.py",
+      "source_sha256": "34bc9f985418f8aa08c6590b14c647b845c0633e4b667a0eab17be4ce0e5d5a9"
+    },
+    {
+      "path": "scripts/audit_task1_gliner_oof_calibration.py",
+      "source_sha256": "6d1c90b43140c926483dfc594baf8188c585b6a76c1bc9fff4c5c36bb89f8963"
+    },
+    {
+      "path": "scripts/augment_polyfiqa_graph_swaps.py",
+      "source_sha256": "6c8094b1cf8872c92eadc69da826b582bcfb474e79d518ac13d8138a05934d85"
+    },
+    {
+      "path": "scripts/baseline_icr.py",
+      "source_sha256": "c991e745536cdc475fa2e85127a4c80491c633561f3be1983fc13b00e94356aa"
+    },
+    {
+      "path": "scripts/baseline_polyfiqa_balance.py",
+      "source_sha256": "04a76b2d6984f1982139966ef596d910e09968f3d4223ddcf9d94a6faeb4d0c1"
+    },
+    {
+      "path": "scripts/baseline_polyfiqa_cashflow.py",
+      "source_sha256": "2e2219001f0831e7d470444a93f61f2831ac69b5f07b023b6150b1eec9729529"
+    },
+    {
+      "path": "scripts/baseline_polyfiqa_expert.py",
+      "source_sha256": "87cb1fb3526339cb926d16ad82e43770e5accd69cd48411509beaf64408357f3"
+    },
+    {
+      "path": "scripts/baseline_polyfiqa_revenue_rd.py",
+      "source_sha256": "f927a4f49e75a37c21e173deb5cd5e794af18d28362de04448f36502d87fb309"
+    },
+    {
+      "path": "scripts/build_icr_boundary_anchor_corpus.py",
+      "source_sha256": "bd838cfbfca4042e5e29b1e401b145fc215ae7b1f0736069340e1940098f3e35"
+    },
+    {
+      "path": "scripts/build_icr_contrastive_exemplars.py",
+      "source_sha256": "dd5c060021fa04caac069d3556419d3b382a97780ec9ff23eac593a939677b4f"
+    },
+    {
+      "path": "scripts/build_icr_decisive_event_queue.py",
+      "source_sha256": "97a1766e3d9c9fe999a725215ce5f33d331b799564cfbb8f9d13b28c5f302a4a"
+    },
+    {
+      "path": "scripts/build_icr_question_conditioning_pairs.py",
+      "source_sha256": "d880de541bb026fb372fa17cecec333c6d68622f749de3ac46b1f7f176beb9f3"
+    },
+    {
+      "path": "scripts/build_icr_review_set.py",
+      "source_sha256": "a01160ba241b86f31c6bb3db7016162388368d7c98fbb19666e748484cd9a6e9"
+    },
+    {
+      "path": "scripts/build_icr_ruri_embeddings.py",
+      "source_sha256": "327dec03b1a99b3632e9fcd0763c982821b20ef0552808df11da0ac1ccb4afa2"
+    },
+    {
+      "path": "scripts/build_icr_semantic_folds.py",
+      "source_sha256": "afdb31d9a34b521aacf320ab1ee797f347c0f46858bf5f468bebae27f66e02e3"
+    },
+    {
+      "path": "scripts/build_icr_silver_agreement.py",
+      "source_sha256": "c47f7d28ff4b578b90bf52f605b31cd34ea137cba20cf2fe3e914a0abd240ba7"
+    },
+    {
+      "path": "scripts/build_icr_source_folds.py",
+      "source_sha256": "d8d1225fbeed16de681c0a91524555992a60baf11a01da7a5beb044d8dbc3d99"
+    },
+    {
+      "path": "scripts/build_ml_promise_japanese_transfer_features.py",
+      "source_sha256": "352acd67cc84ec50dce720d5cb03e6fb1be04bd795ef2929c0483394018a037b"
+    },
+    {
+      "path": "scripts/build_official_submission_csvs.py",
+      "source_sha256": "2273b6596af3dd5edee8911132297f33f6e5fa7e6ed7ff4fcce129a47319a5a8"
+    },
+    {
+      "path": "scripts/build_polyfiqa_candidate_lattice.py",
+      "source_sha256": "0ded5596b580043a1aac2e286272de73178b8e7ee789935d7bae099247b6aa31"
+    },
+    {
+      "path": "scripts/build_polyfiqa_entailment_features.py",
+      "source_sha256": "ec59129efa02e8ce17ab707b2a0c7b13f420701369c40afe425c6beda097c416"
+    },
+    {
+      "path": "scripts/build_polyfiqa_fact_graphs.py",
+      "source_sha256": "a611a954e6d8da63cd1c19a65473de29a4105b067932420c67c3b6112efe9256"
+    },
+    {
+      "path": "scripts/build_polyfiqa_graph_to_reference.py",
+      "source_sha256": "825eda4563c6f573910ce0120794b547284a1a8ad2c3c1939499bdec6e8f960a"
+    },
+    {
+      "path": "scripts/build_polyfiqa_historical_sparse_lattice.py",
+      "source_sha256": "a2e1c2bacf9a110d2e5253b3459989f1c0f112f3eb54283faa16f42570bbec0b"
+    },
+    {
+      "path": "scripts/build_polyfiqa_loco_splits.py",
+      "source_sha256": "6f7ba6123f9dda43a300bd2592202f8b4535cc347d010a01f04028ecbd05f982"
+    },
+    {
+      "path": "scripts/build_polyfiqa_source_mbr_features.py",
+      "source_sha256": "7574d33496d9d117492a03b8300092de44f676a9d6ece895cef3533185fa741c"
+    },
+    {
+      "path": "scripts/build_polyfiqa_translation_candidates.py",
+      "source_sha256": "9708da8f4502edb657c7be796e0e632aa6c791b1c077ab394b613503f074a1a5"
+    },
+    {
+      "path": "scripts/build_submission_portfolio.py",
+      "source_sha256": "ebc84fae3f05e51e53d9e06adf3aa2182b1a1988f2b1e950e13a5817fd6fedcf"
+    },
+    {
+      "path": "scripts/build_task1_enhanced_submission.py",
+      "source_sha256": "7505a5d5d137a57b8ce620610ec517491b20436f7c0fa784a6a6f4f61f53697e"
+    },
+    {
+      "path": "scripts/build_task1_entity_silver_corpus.py",
+      "source_sha256": "bdb3d057fc8240fc7aebabfa23eadc460741eb9ecf94b14bf6ee3dc221615869"
+    },
+    {
+      "path": "scripts/build_task1_span_surgery_corpus.py",
+      "source_sha256": "36893a018b9ed02005f4878cbe9fa17b9eb1307edab928257e7cdcc589fdfb90"
+    },
+    {
+      "path": "scripts/collect_athex_corpus.py",
+      "source_sha256": "09fe6fff323782bf5ba7e1a74b8f42fe1db5086d5b2945a86ce363772c186884"
+    },
+    {
+      "path": "scripts/collect_ebisu_human_rationales.py",
+      "source_sha256": "0916655965771f0563652007c82a1940c775673e4f6e8100e993b676e21bf15a"
+    },
+    {
+      "path": "scripts/collect_japanese_ir_qa.py",
+      "source_sha256": "6d93ba0f14019579db8ddd7e901024a200591fbd74c5335241293fda3af13fa4"
+    },
+    {
+      "path": "scripts/compare_icr_profiles_bootstrap.py",
+      "source_sha256": "247bcd0f573886109a63c8389abc05db22e5f7b0458fff927fce65304981d4ad"
+    },
+    {
+      "path": "scripts/compare_polyfiqa_numeric_planners.py",
+      "source_sha256": "47d53a790e3b574db3ca45d5ad543d3ea8cbff27b98f9b329153742f7f2f66cc"
+    },
+    {
+      "path": "scripts/compose_task1_conservative_policies.py",
+      "source_sha256": "ab68ab57e0ae2bec51fdcdc0665c40bb8eab9d58768f7c6baad6d49780a89335"
+    },
+    {
+      "path": "scripts/curate_japanese_ir_qa.py",
+      "source_sha256": "e13dcf9bf9858eedbe5416d991ab1a950eb9f54afe8b7150eced7ac8f1786315"
+    },
+    {
+      "path": "scripts/deduplicate_submission_manifest.py",
+      "source_sha256": "fd78450244a88fbcd8a95993b75aedb883322d2afba7b02fa2acb13768935df0"
+    },
+    {
+      "path": "scripts/domain_adapt_task1.py",
+      "source_sha256": "9f8ff393484629d4209557f513a247789656e8495c74c41269c89eb80857c962"
+    },
+    {
+      "path": "scripts/embed_icr_zunda_candidates.py",
+      "source_sha256": "e905bf6d52143dc321d381e89bc9ae43f482f6f4000909e7c9368038556fc42c"
+    },
+    {
+      "path": "scripts/evaluate_icr_adapted.py",
+      "source_sha256": "c57d15b0a9a1f764297a21591ba85c71cfd26d7770eea1c7e333b48270044dfd"
+    },
+    {
+      "path": "scripts/evaluate_icr_boundary_anchor_views.py",
+      "source_sha256": "5b7d7d2861d52cffbde97687272ae37e53c9c68dde769af25958d8c106deb822"
+    },
+    {
+      "path": "scripts/evaluate_icr_boundary_decoder_audit.py",
+      "source_sha256": "03e03b8d8fabd4cca23da55cf5e850e91757cd022bffea568a59cf87d2a458d7"
+    },
+    {
+      "path": "scripts/evaluate_icr_decisive_event_teacher_calibration.py",
+      "source_sha256": "18687bbf54b4e9826e640c0f9e44124253a10c5df932ae4fc41a8ac6f52bdc3a"
+    },
+    {
+      "path": "scripts/evaluate_icr_disagreement_weighting.py",
+      "source_sha256": "04f7ea73035212e506b866b7f45932cc97d39198b78b3201d2ac0fdf22dce1f2"
+    },
+    {
+      "path": "scripts/evaluate_icr_distance_aware.py",
+      "source_sha256": "5658fd40464fcdab3a9275135ea65aea20608c53db7cc1ee045f711a512239c9"
+    },
+    {
+      "path": "scripts/evaluate_icr_distance_aware_seed19_confirmation.py",
+      "source_sha256": "1e3c8751cbfe5dadfd0f5faafcd009abccce09eaa9e6f070e93ab4b286c9b12a"
+    },
+    {
+      "path": "scripts/evaluate_icr_dynamic_expert_selection.py",
+      "source_sha256": "a9567c416674013e79dc04cb81e487152bd952b9ff3f1f6312b57f6127dbf2a3"
+    },
+    {
+      "path": "scripts/evaluate_icr_embedding_models.py",
+      "source_sha256": "bf89a9cf068071ee86c30ebe480b4552e2bcd2c09c3ed64feb9e4a09c17b7b68"
+    },
+    {
+      "path": "scripts/evaluate_icr_event_utility_router.py",
+      "source_sha256": "029cf7ee23ce85d4197811bca592470d3c157d8266169b382fa930c20fbf273e"
+    },
+    {
+      "path": "scripts/evaluate_icr_event_views.py",
+      "source_sha256": "d654cc8e87361b807231773dab9cd3aaccab8fd67be488d6126fec9d56e38e81"
+    },
+    {
+      "path": "scripts/evaluate_icr_external_refusal_rule.py",
+      "source_sha256": "9447e99c1ddcf4f2976c37fbda3ea919da37ef37a302a9366dfdbd5cc51c4a88"
+    },
+    {
+      "path": "scripts/evaluate_icr_fixed_rules.py",
+      "source_sha256": "769e8fb31da1f2b3593c5834d51004ddac60a09c5a5d760ed28b694fe1d86b29"
+    },
+    {
+      "path": "scripts/evaluate_icr_human_rationale.py",
+      "source_sha256": "797725acbc96edded39eb9813e1c8b432177f58a4a5ba1bc131e1c5f7c86fa8e"
+    },
+    {
+      "path": "scripts/evaluate_icr_human_rationale_confirmation.py",
+      "source_sha256": "5c0365b08646683717adee2cd20f51d5c6a6167a0b67cd7a187b4d12bc44761b"
+    },
+    {
+      "path": "scripts/evaluate_icr_judges.py",
+      "source_sha256": "846790bf0f586d151c92fbd5c3f3a7e9b6ff38dbc9eddfa7499e95a162778af1"
+    },
+    {
+      "path": "scripts/evaluate_icr_ml_promise_transfer.py",
+      "source_sha256": "e551f11193f7a6580c95f141d94d93b2a10b2caaaf796c16a2d78f59c317eabb"
+    },
+    {
+      "path": "scripts/evaluate_icr_multitask_promise.py",
+      "source_sha256": "610c703c26f69b8c581efb67b5a6d255dad89df87b5ffee3db8c1aac16323ac7"
+    },
+    {
+      "path": "scripts/evaluate_icr_nemotron_japanese_pilot.py",
+      "source_sha256": "e7f4d54de2a572074e120132f0a4d329ffe84951bf3cd451f9fda0fc2c35b4cd"
+    },
+    {
+      "path": "scripts/evaluate_icr_nemotron_japanese_refusal_confirmation.py",
+      "source_sha256": "2036f099059a2120da060b0c45535970cf1f41ea1d0d1db6d588417dff21f956"
+    },
+    {
+      "path": "scripts/evaluate_icr_nested_blend.py",
+      "source_sha256": "d805933443f37bc06f5af4568fa965d374468b57932de8004386de8c626ff387"
+    },
+    {
+      "path": "scripts/evaluate_icr_nested_confidence.py",
+      "source_sha256": "ca7a522c84cfa72627eeb12fa6bf0ff73e579547b0e021311d3823af210f531d"
+    },
+    {
+      "path": "scripts/evaluate_icr_nested_lexical_blend.py",
+      "source_sha256": "445f0fc9b14f80a22c9e2f0ebb90ab0c0e5f67551f9a74c2f977336655bed062"
+    },
+    {
+      "path": "scripts/evaluate_icr_nested_ordinal_thresholds.py",
+      "source_sha256": "ef206b5f94108ef3968c72f123cab3dda4f0d52eeae0d3b53bbeeb0b7e097e3e"
+    },
+    {
+      "path": "scripts/evaluate_icr_nested_residual_stacker.py",
+      "source_sha256": "7502dffeba59884128503ea926e010bcd6610c0b5cab9097f12300c812660f8a"
+    },
+    {
+      "path": "scripts/evaluate_icr_ordinal_decode.py",
+      "source_sha256": "7d3677a70bfc8c114cdd39fd9d45a19e9663e55a2150ffc63e5cdb29769f095c"
+    },
+    {
+      "path": "scripts/evaluate_icr_source_continuity_gate.py",
+      "source_sha256": "a4ef4c779837dc0b0e282c177c7b7b4135014550547ac4dbec05dca0ce6665fb"
+    },
+    {
+      "path": "scripts/evaluate_icr_transductive_label_shift.py",
+      "source_sha256": "5a1b19b717e1c19cc3fe32a7e9dd28b2545d81ebabb6eb6d9de5ba07544586a6"
+    },
+    {
+      "path": "scripts/evaluate_icr_tsutsuji_semantics.py",
+      "source_sha256": "418ccde14eb3a9d5464d05fcdc72f7d15dade471f8540f20054ffb04cbe9951e"
+    },
+    {
+      "path": "scripts/evaluate_icr_zunda_residual.py",
+      "source_sha256": "a6d0391d578a9635dd264daa44c2cdae41edd2babb15c0b2b54440f4734af55a"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_boilerplate_compression.py",
+      "source_sha256": "9d1f4d549c7284b68e34b39c229ded50438a7a69ceab73ed41f78331cb86e1d4"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_cash_evidence_recall_confirmation.py",
+      "source_sha256": "5dc615a8edbf61d87a9a6971937bacb24055947bf2694ba8634030f5d86fc78a"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_cashflow_retrieval.py",
+      "source_sha256": "e299557659a549f940ab2d6cb820cdd7d136cb0689113e5b6c01c1456de14bab"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_easy_july.py",
+      "source_sha256": "f1f2173de4d82d1c1931c69128f16dfdf79f024da5ebfa0400c02cfda5ec4b58"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_entailment.py",
+      "source_sha256": "de8f7d3a942a530ee11d7125115f4bd9c98234261ade757bd83584268f6cd4c1"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_evidence_recall_confirmation.py",
+      "source_sha256": "904c0aee647bf05966c1e3e718f88ef9ddcafe7cbe75c1f7356d3dfc1d975936"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_expert_evidence_ranker.py",
+      "source_sha256": "3132d2d489582f2c0190c6485304e295687fb4c1f1ab024aaeaae67305f29fe6"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_expert_july.py",
+      "source_sha256": "716aafe608e9f6be606824ff151a74c538c552ecb58dee7d05e802152f50880b"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_family_compiler.py",
+      "source_sha256": "03ff6cf1fae1881777a7a89ca670946eeabc1e5911995c106a41508a129937f0"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_family_compiler_full_answer.py",
+      "source_sha256": "a670058fdc2c5466e629f17c8d4dd40fecaba3a50a562668ab11668bf8a4ad02"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_large_content_planner.py",
+      "source_sha256": "c4e6adddaeb5c4b0e801e74c6332c294a1441f2ad9466ca5538e8b6ff6a03e09"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_large_planner_intersection_confirmation.py",
+      "source_sha256": "f990108dc21b6b7215acd19f1870e6d316c7a40fa4a74fc04fb9f3a961c67152"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_nemotron30b_fact_filter.py",
+      "source_sha256": "d0841f233761c6c0c5cdaf712b03e6eb9bb92e9b64de106cffa089a7001f4a33"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_numeric_planner.py",
+      "source_sha256": "ec888101f3756368d686bb4db24c342fe63c1d3cd1bb47a999b2626180b2f50f"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_prior_proxy.py",
+      "source_sha256": "4235e438c64fa2fda306893b99c3dd184714ccdccef9d1d9f8085611969104bf"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_reference_compiler.py",
+      "source_sha256": "d19c5306301b8ecf71303470d0928839926bdd0df83fe70e7f5c67a778fcd3fa"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_reference_programs.py",
+      "source_sha256": "b9bf62aa5d97710dcedf6f9fabb7e96af791f9b979735e9fd6b66af4f7498765"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_revenue_retrieval.py",
+      "source_sha256": "335e29b7524897d97fc8b85e205540a005e5a8b2c8fe5748a0f8510a005cacb2"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_source_mbr.py",
+      "source_sha256": "27abe02e5b8ab4871c022fd344e9b460c9506b1e415cb05fbd46c79051d86454"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_sparse_edit_family_gate.py",
+      "source_sha256": "c7d91c914f7326786acf18f49400f07965134e919cc46ba39e5e7f5809d53252"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_sparse_edit_oracle.py",
+      "source_sha256": "525c13c90a9860bb39f25b5473e0755e5ba19beb40db64984d1e69306fd2fd85"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_sparse_edit_risk_model.py",
+      "source_sha256": "350391f7ab714f34514b3b0de777bb9e7cd254fc0ac9d007c59de53886b45c0c"
+    },
+    {
+      "path": "scripts/evaluate_polyfiqa_temporal_sparse_selector.py",
+      "source_sha256": "2878ade4f66f31381273c38a3df77a0a29b663b994d5b295cd816109da6f7f31"
+    },
+    {
+      "path": "scripts/evaluate_task1_all_released_labels.py",
+      "source_sha256": "4a94f95d8898b05fa2ce3d2f1711589bf69c7bfbad997b1fa19ce3304015b95d"
+    },
+    {
+      "path": "scripts/evaluate_task1_annotation_policy.py",
+      "source_sha256": "182c301196864edfcfc7437bba314e4d68c517f900332f17e28e9ddc9596bf8d"
+    },
+    {
+      "path": "scripts/evaluate_task1_calendar_suffix_dedup.py",
+      "source_sha256": "c2675c89d3d84a3fbe17b4c05947e38f59da8a3cdb437ce8bc409ccbda083ad5"
+    },
+    {
+      "path": "scripts/evaluate_task1_dual_raw_proposer.py",
+      "source_sha256": "a0eb98b17500b1a99649c9de12dd43cb107e69c9b63ed10f34cfc483c5c3d1eb"
+    },
+    {
+      "path": "scripts/evaluate_task1_ensemble.py",
+      "source_sha256": "453d8d60fc1190f94add556c3132232177dadabee38d7567bc4720b32c43c88f"
+    },
+    {
+      "path": "scripts/evaluate_task1_entity_aware_adaptation.py",
+      "source_sha256": "eb3f7a3cd79b8aceca065ad474a6f41268dc82c8b4c5701f2ba981ee6fc40190"
+    },
+    {
+      "path": "scripts/evaluate_task1_external_operation_calibration.py",
+      "source_sha256": "aa8ba1f5a2da8a74526e5844b66349ef15189923cb28f2e82f5439553efc6549"
+    },
+    {
+      "path": "scripts/evaluate_task1_gliner_boundary_repair.py",
+      "source_sha256": "fd9041f4c4335198e17d4f756d8be87f5a54b147be923e226534631f0c8bf87b"
+    },
+    {
+      "path": "scripts/evaluate_task1_gliner_proposals.py",
+      "source_sha256": "2a475c0f48b7e94086d3811de6c5156e53dadd1373c84a75ba5c849bdb3f13d5"
+    },
+    {
+      "path": "scripts/evaluate_task1_harm_aware_hurdle.py",
+      "source_sha256": "76f63e1310f1c0ad16cc9b22a5493c29b51f9b8f81043a59659e40c9d2e5b6fa"
+    },
+    {
+      "path": "scripts/evaluate_task1_oof_annotation_program.py",
+      "source_sha256": "3a79def937dd48ceabdd9b927d3409fdcb39b815f18a09c83480f698ff883d91"
+    },
+    {
+      "path": "scripts/evaluate_task1_operation_view_consensus.py",
+      "source_sha256": "f8d1469681a2db909773c849dfa8e671eb4c44792852b324db0777fc6d2cc40d"
+    },
+    {
+      "path": "scripts/evaluate_task1_public_label_ensemble.py",
+      "source_sha256": "b982b89236ee2e1bfa81e1d75e936663a8a79e3f2d207b0f29717890f45cb06b"
+    },
+    {
+      "path": "scripts/evaluate_task1_public_label_replication.py",
+      "source_sha256": "d4f677962173d0353e04ad82434d8c92d45deac3783046dbd78ae54c773e5a2a"
+    },
+    {
+      "path": "scripts/evaluate_task1_rank_invariant_hurdle.py",
+      "source_sha256": "ed74242a28de0310f9598f0a91061e6a9d5a23aa3ff670e68603e75397b1ac28"
+    },
+    {
+      "path": "scripts/evaluate_task1_span_choice_cpu.py",
+      "source_sha256": "cf9c07f8665d7f99e76622b52320cc65a8a604d8bf7e195e18bff610541d5eb8"
+    },
+    {
+      "path": "scripts/extract_icr_zunda_events.py",
+      "source_sha256": "88d60699a55cf18a956555ff85cc1e181d7d23fd29c2286a1936449f60bdd1ef"
+    },
+    {
+      "path": "scripts/finetune_icr_ruri.py",
+      "source_sha256": "f280643e5af2a462a516d4e662c60cc4a42253267451388731e374efca629101"
+    },
+    {
+      "path": "scripts/generate_icr_counterfactual_lattices.py",
+      "source_sha256": "12220e6a537709914b42cbd7cc67d5bed753f0a5123d63503d724da16083179a"
+    },
+    {
+      "path": "scripts/label_icr_decisive_event_teachers.py",
+      "source_sha256": "f48c48ee753b74d845cd121ee1da62e194df887d4edaf0d50245903e7e7a72c4"
+    },
+    {
+      "path": "scripts/label_japanese_ir_qa_teachers.py",
+      "source_sha256": "8a125f4095f0becf9920180a296e58154e417965b586eed68abe6671b9682b9e"
+    },
+    {
+      "path": "scripts/merge_task1_textual_predictions.py",
+      "source_sha256": "baaaab6e00fb8ed4a6bf364454224843f0ba91f95b8bf908e6891d500b6fee21"
+    },
+    {
+      "path": "scripts/mine_icr_rules.py",
+      "source_sha256": "d4433364c7b40ffafa5d8e8cbe1fdb86cc91f9c3f5c695a8f1efd4decbe4cc53"
+    },
+    {
+      "path": "scripts/mine_polyfiqa_reference_phrases.py",
+      "source_sha256": "81ebed73aed2e966b37d786ebf3ebe8ccf7fb7ae9567d335456dcc718d703f13"
+    },
+    {
+      "path": "scripts/nested_validate_icr_rules.py",
+      "source_sha256": "c4869f72f814cb09a80b7e3a146a0d3fddb39e76825d97218e726cd73351aac6"
+    },
+    {
+      "path": "scripts/normalize_task1_submission.py",
+      "source_sha256": "ee3ca6f074e986a4d50ba282df814be87be7f74fe8aa3b99cde91d55601f388d"
+    },
+    {
+      "path": "scripts/pilot_icr_judges.py",
+      "source_sha256": "a44f6d9de16ddf4a2a998c6791b32f414ecdc6ed4be7ab87fd3306186d263b5c"
+    },
+    {
+      "path": "scripts/pilot_polyfiqa_expert_cpu.py",
+      "source_sha256": "2e511198300e626cc0a6ec93d0806da0dcba4889b7d1ea39f1ed85a152924816"
+    },
+    {
+      "path": "scripts/pilot_polyfiqa_expert_llm.py",
+      "source_sha256": "715b8e9e91b0bb9033e8f9f12296b72ba47eb27f7777ed6f895647ce4c430e07"
+    },
+    {
+      "path": "scripts/pilot_polyfiqa_large_realizer.py",
+      "source_sha256": "815cfa125065ae90a78d10188fce4268e041342102b43b34b9cd6216f3ad8ecc"
+    },
+    {
+      "path": "scripts/predict_icr.py",
+      "source_sha256": "d2bff5cbe91dfb01658a8b0ae84dcc3da3ab88983520369c78728c744daa888e"
+    },
+    {
+      "path": "scripts/predict_icr_explicit_rubric.py",
+      "source_sha256": "0b05043e1ce389dd917ca140364201ff13f707b31f620765c1f970faef19b561"
+    },
+    {
+      "path": "scripts/predict_icr_japanese_ensemble.py",
+      "source_sha256": "b75b369cb055fe20601731ce49361c2692e531d09f69181a827d4785cb8be442"
+    },
+    {
+      "path": "scripts/predict_icr_source_prior.py",
+      "source_sha256": "ec97b9a1a56dc3e82df9845e0324021246a8c87f8d7ab747916f00de59b222c0"
+    },
+    {
+      "path": "scripts/predict_polyfiqa.py",
+      "source_sha256": "98d1330fb6bce9fab3d3f08675ae6a447b9b8cef8443dd79686f1c089167ef4f"
+    },
+    {
+      "path": "scripts/predict_polyfiqa_hybrid.py",
+      "source_sha256": "1ece3a6371142c3a679d631a0d630e26329c6b5ebb763620a77b624c5a8749a8"
+    },
+    {
+      "path": "scripts/predict_polyfiqa_lookup_exact.py",
+      "source_sha256": "5a62ee2ab8918b62fb477146c9ba1e397497517aaebe29e4b649f3cb9c57bfd4"
+    },
+    {
+      "path": "scripts/predict_task1_ensemble.py",
+      "source_sha256": "faf27589ce75414e951b01181d3f804e728a6cceffd54f80a29439640ef8f060"
+    },
+    {
+      "path": "scripts/predict_task1_gliner_fold_ensemble.py",
+      "source_sha256": "972709673eba6c852969cb8cc2d053b659c963423c2031c8ee129e9df3653f24"
+    },
+    {
+      "path": "scripts/predict_task1_gliner_raw.py",
+      "source_sha256": "47c405cd45af662cef06bd00525af5ba2c9bbb46f1bdb625ba5d6e59cca80019"
+    },
+    {
+      "path": "scripts/predict_task1_grouped_consensus.py",
+      "source_sha256": "77f5e722a4562e15a8789f2c74e10c0cfe152d0d9ae30dff4eb13a756a7cc138"
+    },
+    {
+      "path": "scripts/predict_task1_lookup_safe.py",
+      "source_sha256": "8aaa8770d2fd59ad1c78519ea1513e9aa9e0d1b99d2885e3550460e204c2cf84"
+    },
+    {
+      "path": "scripts/predict_task1_mixed.py",
+      "source_sha256": "19fb204a57bff7dbf755c40582cb74c7ead0ff1df063cb89be221724465c6819"
+    },
+    {
+      "path": "scripts/predict_task1_textual.py",
+      "source_sha256": "34bb81b2104c0a93e8e63cc780382e423adaed552ceaada780955af4b58261c2"
+    },
+    {
+      "path": "scripts/predict_task1_textual_multilabel.py",
+      "source_sha256": "520f2cf1d3ec37a6db1b60df0915342700348e0d3af47cc717447d6997258b23"
+    },
+    {
+      "path": "scripts/prepare_finance_corpus.py",
+      "source_sha256": "1b8d2c51eba6a1f74bccd583459c338ffd19c401a477850e864d2ed3c0807448"
+    },
+    {
+      "path": "scripts/prepare_icr_edinet_mlm.py",
+      "source_sha256": "67b12cf52897b9532293c54b52cb0cd786eb0e84c15e9a7c078d5b03593456df"
+    },
+    {
+      "path": "scripts/prepare_ml_promise_japanese_auxiliary.py",
+      "source_sha256": "e581d372a356360075dc6afda5f96840c82b96cfd4340d33cb9794b4fda28fc9"
+    },
+    {
+      "path": "scripts/prepare_task1_textual_subset.py",
+      "source_sha256": "b3bd21830a58ef51607f039e65884e073abe53ae7f176c920726511b74808313"
+    },
+    {
+      "path": "scripts/pretrain_task1_textual_legal_ner.py",
+      "source_sha256": "0b20774b52c6b2ac0fd5e53512b8291390210b98ad7b601c1ee18a8abfb13880"
+    },
+    {
+      "path": "scripts/rebuild_japanese_ir_qa_from_cache.py",
+      "source_sha256": "c2446b9ef1f1f8dd50fd378c4865bb4e707b526fe016f7e0229557fb72baf30b"
+    },
+    {
+      "path": "scripts/recover_athex_corpus.py",
+      "source_sha256": "624cfa5cc58f05af3d73e6619735dfdfc1bca47a508b9a5e4a085daa114fe4aa"
+    },
+    {
+      "path": "scripts/research_icr_gates.py",
+      "source_sha256": "01140459c008c8396389037e4f72c0871afd658887cba4baca8713e5b28812f9"
+    },
+    {
+      "path": "scripts/research_icr_short_rule.py",
+      "source_sha256": "197d5977c2858d106e4e2b0352d576bb00a4550f57917b2376673b0272ebdf17"
+    },
+    {
+      "path": "scripts/retrieve_polyfiqa_cash_evidence.py",
+      "source_sha256": "7ed71e3c921106c329a8e65480bace5ca547531f3f23ef90462478b57f8d93f6"
+    },
+    {
+      "path": "scripts/retrieve_polyfiqa_cashflow_evidence.py",
+      "source_sha256": "17a375415a46d9fcb02161bdc62745713cdcdffa0e075e35ae64bf7432444c0e"
+    },
+    {
+      "path": "scripts/retrieve_polyfiqa_expert_news.py",
+      "source_sha256": "6166c5a906a661b7ea6fe4ca03482cbb3c695cdd107321eb5983b6ba46712c27"
+    },
+    {
+      "path": "scripts/retrieve_polyfiqa_portal_evidence.py",
+      "source_sha256": "d97ade432596abac09f74194020c2fea363af74c007d6547c057b5cd65be33af"
+    },
+    {
+      "path": "scripts/retrieve_polyfiqa_revenue_evidence.py",
+      "source_sha256": "8e266ed40776dab1dccade0bb6cb69800301dbe142b562a3bbc40b0bbbba2a38"
+    },
+    {
+      "path": "scripts/run_final_submission.py",
+      "source_sha256": "67c5040e68a16f8275c251c44c6422ed10c63efc47292964546da1873c6059a5"
+    },
+    {
+      "path": "scripts/select_submission_candidates.py",
+      "source_sha256": "896a03db4f3ecc49d6f2c3bc943eb59a3079f9401f18be0f51272d823e8d6df7"
+    },
+    {
+      "path": "scripts/summarize_icr_decisive_event_pilot.py",
+      "source_sha256": "7cbc5e3d9d2d311eecd2756ca5dfc6ffed43306827dcae54f4c56002df9d2734"
+    },
+    {
+      "path": "scripts/summarize_polyfiqa_graph_realizer.py",
+      "source_sha256": "f76f34563cd493648cc55d61d93c3d248412fea767057ec2d1675e6bf1269ef5"
+    },
+    {
+      "path": "scripts/summarize_task1_gliner_oof.py",
+      "source_sha256": "cfbaff53bf0be1c4ab301d849331598fcacead6251c01900c52f44d68d20e3c3"
+    },
+    {
+      "path": "scripts/task1_numeric_baseline.py",
+      "source_sha256": "b8615058034523fb52dbeab4b8fee4106db2bc381cda8c0d371c170e656445d8"
+    },
+    {
+      "path": "scripts/task1_postprocess.py",
+      "source_sha256": "a57cfba65e47d1846329bb0dce40e658ee3768e1aef4982cb2275fa5092ca868"
+    },
+    {
+      "path": "scripts/train_icr_binary_core_cv.py",
+      "source_sha256": "d669793bb4bfbbbcdf8c396cd79b829bff9620ed3586d4d94dae0a04a12b9e09"
+    },
+    {
+      "path": "scripts/train_icr_disagreement_weighted_cv.py",
+      "source_sha256": "15ac19e3dc24978e6ffa55a7644d3e0833be8a2702b67745d4471b8283c41b25"
+    },
+    {
+      "path": "scripts/train_icr_distance_aware_cv.py",
+      "source_sha256": "5c5cd86c2e8514170e37b53754803b3ac557f8ee80e6958a769390965d3db3ac"
+    },
+    {
+      "path": "scripts/train_icr_human_rationale_cv.py",
+      "source_sha256": "6ec48de8492fb8ab3ff8b48a6bf8af1f14bed83f76d85b70d4b308ac82980d29"
+    },
+    {
+      "path": "scripts/train_icr_independent_boundaries_cv.py",
+      "source_sha256": "ca753c4d400830c73d0889b02931964f8e9420891e8f51b93a6e451c3a60166f"
+    },
+    {
+      "path": "scripts/train_icr_japanese_cv.py",
+      "source_sha256": "43b62292ea69142c5c2c94e79ed83f0c6c6fa400ec563cf4434a803bcea6c7ec"
+    },
+    {
+      "path": "scripts/train_icr_japanese_full.py",
+      "source_sha256": "4f09beaa200911a7f1cee910ece0b75d53008d9a8199086e1ed2e681de274a02"
+    },
+    {
+      "path": "scripts/train_icr_japanese_ordinal_cv.py",
+      "source_sha256": "b5028a3266358eaf8427f0c16cb8ae2805c7b65ac7eaa551acd01b48569dc12c"
+    },
+    {
+      "path": "scripts/train_icr_multitask_promise_cv.py",
+      "source_sha256": "dd37feb59d78d2dd39cbf4f756cdd827a955d092ce5bc9807468aa28adbacbdd"
+    },
+    {
+      "path": "scripts/train_polyfiqa_graph_realizer.py",
+      "source_sha256": "05329c88e45957c9c1423f571016fdbe5f5a0732f8794d192ea7bb903d709d10"
+    },
+    {
+      "path": "scripts/train_task1_entity_adaptation.py",
+      "source_sha256": "6abe185ed23db32a8013b344dd704a26dcc92adea68848cc8a5b1a76221341d5"
+    },
+    {
+      "path": "scripts/train_task1_full.py",
+      "source_sha256": "3e901909cef5fa0278f76c69bdeb6c310a8f2a4d9678cb7e85e6585e0c572d0e"
+    },
+    {
+      "path": "scripts/train_task1_gliner.py",
+      "source_sha256": "f04436e029bdabbbe5eb128f73ab3ccf61de95a60361e156fdb3c10c0d864521"
+    },
+    {
+      "path": "scripts/train_task1_gliner_oof.py",
+      "source_sha256": "c91951150e9221511c87db9d5467fc99e55470ef1310ad5b79d951c5db362140"
+    },
+    {
+      "path": "scripts/train_task1_multilabel_oof.py",
+      "source_sha256": "5b1ab09e6d6d6de96b264fd246be40ea7c015f26a7c518a7fff025e29c8e0d7c"
+    },
+    {
+      "path": "scripts/train_task1_neural_operation_ranker.py",
+      "source_sha256": "c8506e9cbe738e4697b9f4f47edc141a33fd97e5663ede107b3d943394d0d7a1"
+    },
+    {
+      "path": "scripts/train_task1_textual.py",
+      "source_sha256": "2bf8417c39509420d8e925b7d908f1ae9c6a5db164acf0d2d3bfefd562349a1c"
+    },
+    {
+      "path": "scripts/train_task1_textual_entity_fold.py",
+      "source_sha256": "b4287e4d8ba452dfb072685f151f7b9788b8f5492a33e7fdc0475cda383051ec"
+    },
+    {
+      "path": "scripts/train_task1_textual_full.py",
+      "source_sha256": "23c1e2320a154cd0c69e0f4430e11ae3f7116ad5bc46110093f2a3549b763b10"
+    },
+    {
+      "path": "scripts/train_task1_textual_multilabel.py",
+      "source_sha256": "dbb92e5488150bb344b08ac7856c4b556e5f2253fdb80ce8deca2492034bb435"
+    },
+    {
+      "path": "scripts/train_task1_textual_multilabel_full.py",
+      "source_sha256": "6827262a69b6f4f0c32a6c4737708273783c2f63ba168b32f39e1c6280ca1cc5"
+    },
+    {
+      "path": "scripts/train_task1_transformer.py",
+      "source_sha256": "98b7fc7c5964664fabf2a15dcd9d726729ffa10edb3fa92773ab48634576c588"
+    },
+    {
+      "path": "scripts/translate_polyfiqa_evidence.py",
+      "source_sha256": "2762d1e720862c25930f9c8f2e6afd42e440255724fa339b3c27550c14aa8803"
+    },
+    {
+      "path": "scripts/validate_polyfiqa_predictions.py",
+      "source_sha256": "03e6ffc34effedcf066ce90dd65c7f2492fe399926d93aee1f6670cab894dcd6"
+    },
+    {
+      "path": "scripts/validate_submission.py",
+      "source_sha256": "9defa2fe4e0b758bc67515d5c82e96b7d7cc584d9da26931f4a05f6fe9a8d9a6"
+    },
+    {
+      "path": "scripts/verify_icr_counterfactual_lattices.py",
+      "source_sha256": "4a37ca4e969f495ed0eba8fc0e30f2807730eb95793531e56a81c7df5f32733d"
+    },
+    {
+      "path": "scripts/verify_polyfiqa_graph_to_reference.py",
+      "source_sha256": "8c295a143efdeb93f787c4b40c3ea94f8940209a78cc48e606e8a0005e80a9db"
+    },
+    {
+      "path": "scripts/verify_polyfiqa_translations.py",
+      "source_sha256": "516cb34facdc168e6ebcc0a7293e62e4e2f608cecf4c7189649a41bd00e4f67b"
+    },
+    {
+      "path": "scripts/verify_submission_manifest.py",
+      "source_sha256": "efbce8a55ca5651df98f8e3734e0549206c5770ee43eb220edc7796610919f13"
+    },
+    {
+      "path": "tests/test_audit_ebisu_annotation_disagreement.py",
+      "source_sha256": "9008ba4e71ee8bf9fea33d53a508f02a449aa3e428e019c6561f2b78234a1887"
+    },
+    {
+      "path": "tests/test_audit_organizer_drive.py",
+      "source_sha256": "60f7234799a9a4d9af22fcb86da7f50786a9f283a5feb0ad5939bc0fc222800c"
+    },
+    {
+      "path": "tests/test_audit_organizer_site.py",
+      "source_sha256": "451fee81562f8c27279ab1b9b51d8449eb036a827a10f23ce6181c373a684f2c"
+    },
+    {
+      "path": "tests/test_build_official_submission_csvs.py",
+      "source_sha256": "38da30547f07162bde889b59f6c6150f5efed8ccfe5eb4bb82d3156e1610b60d"
+    },
+    {
+      "path": "tests/test_build_polyfiqa_historical_sparse_lattice.py",
+      "source_sha256": "df2316f4f3a3331f5629ad6e75d30e3c8e9157824d70d0f3a8ddd6d5ae7babfe"
+    },
+    {
+      "path": "tests/test_build_submission_portfolio.py",
+      "source_sha256": "fa7ade611d707f413bd471aad1c83108114df1c4a9db24f6f6548cf06826a52a"
+    },
+    {
+      "path": "tests/test_build_task1_enhanced_submission.py",
+      "source_sha256": "0d80aa0d70c417a0930c131ba32e2ba12a084c64ef8d597c5092520eefbb823c"
+    },
+    {
+      "path": "tests/test_build_task1_entity_silver_corpus.py",
+      "source_sha256": "1076bc98ac163697249ef6e548ad352d32e397e01bb9061f8ca1a5b8873c86e8"
+    },
+    {
+      "path": "tests/test_cashflow_realization.py",
+      "source_sha256": "22d210dbe5aa79eb69596360c3e292403cdfbe4b5dfe1268cce9fc42aa17c846"
+    },
+    {
+      "path": "tests/test_collect_athex_corpus.py",
+      "source_sha256": "306d3a661d5eca873b2e6f69b05a91b34b365b4c77116c7c77cfa3372b09957e"
+    },
+    {
+      "path": "tests/test_collect_japanese_ir_qa.py",
+      "source_sha256": "9c8640d51ab28f576b17797c60a52a0bcffa0f008b64aa347d59e2398721ead7"
+    },
+    {
+      "path": "tests/test_curate_japanese_ir_qa.py",
+      "source_sha256": "b1e895e487ab77c579e66a4bf20263531eeb214cf37f6deb226f66fa768cf155"
+    },
+    {
+      "path": "tests/test_deduplicate_submission_manifest.py",
+      "source_sha256": "3818b6a9950cc826701964dc03679dbc28f36088662dddbb4f5d1a007b9d0453"
+    },
+    {
+      "path": "tests/test_evaluate_icr_disagreement_weighting.py",
+      "source_sha256": "72b759723c1cc51d726ab6ca8c62ebc210ecdaac47041b9af4f4a2cf1c7ae60f"
+    },
+    {
+      "path": "tests/test_evaluate_icr_distance_aware.py",
+      "source_sha256": "cd5cf125f65a8aae5cbb948d756a7f2bde7ffff9c884b20e5994cf6972bbeba4"
+    },
+    {
+      "path": "tests/test_evaluate_icr_human_rationale.py",
+      "source_sha256": "14ac04d4a17c65e272b401e217435c300a1f89b363123ace0284cf8096715f05"
+    },
+    {
+      "path": "tests/test_evaluate_icr_human_rationale_confirmation.py",
+      "source_sha256": "bef62f488d924fe0b91e2dcc4d45136e08c51da066e334c1e2b20ca467d4d85a"
+    },
+    {
+      "path": "tests/test_evaluate_icr_nemotron_japanese_pilot.py",
+      "source_sha256": "d38d036a43416c6bc6f84c390c426095270b87c7c64144bd79595dd78299656d"
+    },
+    {
+      "path": "tests/test_evaluate_icr_nested_blend.py",
+      "source_sha256": "7c2fa504f671f877f23f911be5bc9ec8c11cfb124dcb3b928e8888a52ca484e7"
+    },
+    {
+      "path": "tests/test_evaluate_icr_nested_lexical_blend.py",
+      "source_sha256": "c5f482f8a3883970f648122e80555e47e8dbe9651e972adbe45be26faec94b83"
+    },
+    {
+      "path": "tests/test_evaluate_polyfiqa_cash_evidence_recall_confirmation.py",
+      "source_sha256": "b59010b45cee26efa9b4a6e5e485278bf729b9c97c44b05670b6ab2f7603938d"
+    },
+    {
+      "path": "tests/test_evaluate_polyfiqa_large_content_planner.py",
+      "source_sha256": "bfb0bedaca6292c13d14b4bb4b33ad95940f21555a7cde6973aadb6516908650"
+    },
+    {
+      "path": "tests/test_evaluate_polyfiqa_large_planner_intersection_confirmation.py",
+      "source_sha256": "3e60f00305209d1bbda2d3ed481d3e0d1866c924669b09894d91579b5a697737"
+    },
+    {
+      "path": "tests/test_evaluate_polyfiqa_nemotron30b_fact_filter.py",
+      "source_sha256": "ed26c6f0d83fa2a67acdc220162c5248395806e08591c02a0c8fa0b721af50c6"
+    },
+    {
+      "path": "tests/test_evaluate_polyfiqa_temporal_sparse_selector.py",
+      "source_sha256": "178f40f6e6b11ac268871d6fb7527ed58a2efad98bd1d8a40a001fa4d674d74b"
+    },
+    {
+      "path": "tests/test_evaluate_task1_dual_raw_proposer.py",
+      "source_sha256": "a47b6311e2ebecdfee6b41eb52b17c2930ab950b8ce76c65f420e6f99ce37d1c"
+    },
+    {
+      "path": "tests/test_evaluate_task1_external_operation_calibration.py",
+      "source_sha256": "624449333429b8c3528cfcc0379270f4404f01c62c756ce8b6edc7d70393dae2"
+    },
+    {
+      "path": "tests/test_evaluate_task1_harm_aware_hurdle.py",
+      "source_sha256": "09f0020fe2ea50a773b686b49dc9c18afee7661cb70168bba516f3c87bb15381"
+    },
+    {
+      "path": "tests/test_evaluate_task1_rank_invariant_hurdle.py",
+      "source_sha256": "a6f9ae49806ce69f0357d05c493e71f29866abf1dbcbc17d406ceb252c9896f6"
+    },
+    {
+      "path": "tests/test_expert.py",
+      "source_sha256": "d827cbe64ae49ef9457898ad4fd066a40f7eac930b32672b7601e6131dbdd6aa"
+    },
+    {
+      "path": "tests/test_expert_realization.py",
+      "source_sha256": "6bffed0cf13caf470b4efba75f602b41a197bbf41913ca9881123609323eddc0"
+    },
+    {
+      "path": "tests/test_finance.py",
+      "source_sha256": "c272698fe839af0dc07806042737550f3f3b92c082a0b9f8821ca0d95a46e2d1"
+    },
+    {
+      "path": "tests/test_hybrid_routing.py",
+      "source_sha256": "f525c14f55b9e134a481e943006b858ff18b748a93321baab8377bc7ccf80bd6"
+    },
+    {
+      "path": "tests/test_icr_adapted_evaluation.py",
+      "source_sha256": "bef9187ecaadb84fc20289931d254e5bf1bc99264c2eb6e3738b3005ea57917e"
+    },
+    {
+      "path": "tests/test_icr_anchors.py",
+      "source_sha256": "ad25e87475efb0c436fc0de0bf846a10c1709598377acecd656dc509f78d37cb"
+    },
+    {
+      "path": "tests/test_icr_candidate_gate.py",
+      "source_sha256": "89cd96d0d8752f47066ce0222e6d0532d953d03188a5d3fecfa8ef65b2a0e3d8"
+    },
+    {
+      "path": "tests/test_icr_dynamic_selection.py",
+      "source_sha256": "4741da4c1aef3c0b65ea0edf5cc9f0f8c6ff15c7df48aa07c08446420759f21a"
+    },
+    {
+      "path": "tests/test_icr_edinet_exclusion_audit.py",
+      "source_sha256": "a388dead2e84e26fa09107a94223864ff07605e08d864bcbf3acda8a0931e053"
+    },
+    {
+      "path": "tests/test_icr_edinet_mlm.py",
+      "source_sha256": "c9436f67b662fe6528e353bb5ef165ec54e50655455579a2261cf3b20c1ec9c1"
+    },
+    {
+      "path": "tests/test_icr_events.py",
+      "source_sha256": "1b5d2690820fd0ee6440322b440d0b8b378ba4c0c6b27cb50e3e90e9162a70af"
+    },
+    {
+      "path": "tests/test_icr_external_refusal_rule.py",
+      "source_sha256": "ada7c3ca509e8ec7d7e4064ac0d9336bca0420e7e16c7d63c411c4535651f1d4"
+    },
+    {
+      "path": "tests/test_icr_functional_expressions.py",
+      "source_sha256": "dcaa4e83faf9694adc4ba7d0e2f00dabc4438f594023223b8e5a1df5ea1aee9a"
+    },
+    {
+      "path": "tests/test_icr_head_tail.py",
+      "source_sha256": "2ae137111eaa584c5509b9f231e99fd149dccaeeefe7a1ed7170ab3e303c3777"
+    },
+    {
+      "path": "tests/test_icr_human_rationales.py",
+      "source_sha256": "c3aa9ce0a2866098bb71f89f0f042d3bbb39155a9814a6971d0966a83b0ae244"
+    },
+    {
+      "path": "tests/test_icr_lookup.py",
+      "source_sha256": "b1c0a912009087a9cba0425cb6fb2158d5d56a7a94dacbc9c8a2c767c530bad3"
+    },
+    {
+      "path": "tests/test_icr_multitask.py",
+      "source_sha256": "091481f59e1e78ec232f3451b8995e238425e355521bc44b4d05f416e12e3901"
+    },
+    {
+      "path": "tests/test_icr_nemotron_refusal_confirmation.py",
+      "source_sha256": "631afa48459065d55cbf629110e45d565dfa48eb60ebca38d6eb0c25133bccd8"
+    },
+    {
+      "path": "tests/test_icr_nested_confidence.py",
+      "source_sha256": "5c0bc3d54f7b84d5c46d76ec4ef168bb2e04ec86d4791e7f7dcb7143e3216664"
+    },
+    {
+      "path": "tests/test_icr_nested_ordinal_thresholds.py",
+      "source_sha256": "3762cb2169c8ffd49ace137f81b0c823f181a29fe80a45bc7328b57c7c98add8"
+    },
+    {
+      "path": "tests/test_icr_ordinal_decode.py",
+      "source_sha256": "fd034eb8d67c0e84952fc77407f5854f5e327bdde664e85a2c6544be753ace16"
+    },
+    {
+      "path": "tests/test_icr_ordinal_loss.py",
+      "source_sha256": "d8951d2ab79b8ca329c9ba044da92e4764b336100cc13808f9e1f336c611829d"
+    },
+    {
+      "path": "tests/test_icr_ordinal_training.py",
+      "source_sha256": "af3b13e141718ecabf0f8286743af9f74f98286c2b728784e2bd8c5436f70553"
+    },
+    {
+      "path": "tests/test_icr_rationale_multitask.py",
+      "source_sha256": "53b404564a82e7fd9034666951fa576a3913ea9045ef4fed37831ad0e95ed60f"
+    },
+    {
+      "path": "tests/test_icr_silver_agreement.py",
+      "source_sha256": "d3b5041f55deee37670dbf6523084b99e18e148a7e1f32467a1887bc09ef22a6"
+    },
+    {
+      "path": "tests/test_icr_transductive_label_shift.py",
+      "source_sha256": "e8cd68970cd9c7cd7cc1568097135138efb6737a308c9dd036d6df3b91f968c1"
+    },
+    {
+      "path": "tests/test_icr_zunda.py",
+      "source_sha256": "c5fb1937765cac8fe88ae797955219d1749daecadb16a71d871d0d0d3edca64d"
+    },
+    {
+      "path": "tests/test_metrics.py",
+      "source_sha256": "a70773fa1664e4938f49655384ed9dc34a4bee20833e70a93cf915d2fd87e9bd"
+    },
+    {
+      "path": "tests/test_normalize_task1_submission.py",
+      "source_sha256": "5e08c51b30e4c4e4080d05f962973da4084d42743d445fbd328a5bd0653fc83f"
+    },
+    {
+      "path": "tests/test_openai_compatible.py",
+      "source_sha256": "553c6a0c81e0fe7e1e97586dbef1c2072a8151818a9fc5434366de044026b77f"
+    },
+    {
+      "path": "tests/test_polyfiqa_boilerplate_compression.py",
+      "source_sha256": "2af84745f265aa96bdef0e3b6ce74f88a72fe4607cb496f32185e78a36336801"
+    },
+    {
+      "path": "tests/test_polyfiqa_delex.py",
+      "source_sha256": "215862b30dc6a4ba91ffab8425f26613b4f34cafb6e832d62a743f8f36105ee8"
+    },
+    {
+      "path": "tests/test_polyfiqa_edits.py",
+      "source_sha256": "cb966071319a94046d22f6a1c8b699a3433818dcc3a113815617f37b990ad5ad"
+    },
+    {
+      "path": "tests/test_polyfiqa_entailment.py",
+      "source_sha256": "840e82d13aef6f23974328cac3db6b04dde0b7e1be46874c0926b83a33988f13"
+    },
+    {
+      "path": "tests/test_polyfiqa_fact_graph.py",
+      "source_sha256": "05212e106968a3e3682fc022a84a749f59b08096d39390b381efdaf2476d8256"
+    },
+    {
+      "path": "tests/test_polyfiqa_family_gate.py",
+      "source_sha256": "5d847f2c54d0d6b375954d7ca32b036d3db40c47f607f9ed651f60dccca4fce0"
+    },
+    {
+      "path": "tests/test_polyfiqa_hybrid.py",
+      "source_sha256": "ec73e9a9c4f16f3b896379955536ed1cd2b7abc7e6d25584811de8c6b4fafa58"
+    },
+    {
+      "path": "tests/test_polyfiqa_reference_programs.py",
+      "source_sha256": "40062e4dedb98e2e84d6c35e327e55beb32c63aa3452f7983383e1aea3378adc"
+    },
+    {
+      "path": "tests/test_polyfiqa_revenue_ranker.py",
+      "source_sha256": "fbbf88386895350baaf342f3f1130aa881f69e37ee68addb92510fe4a9ac01af"
+    },
+    {
+      "path": "tests/test_polyfiqa_source_mbr.py",
+      "source_sha256": "d9b5621b4e5b74b74adc20cb5a716e703f6ccbf2f69e8137dc7e60102ef712de"
+    },
+    {
+      "path": "tests/test_polyfiqa_translation.py",
+      "source_sha256": "e2c3fd87be1b65094056d0e52fc2158911fc8b4cdc16b1a43e94fc32f8a05780"
+    },
+    {
+      "path": "tests/test_predict_icr_explicit_rubric.py",
+      "source_sha256": "b036ad87aaea71c1d8ae8065c3e29422c48e17f6e41fece77885b0cfd3a2fd5e"
+    },
+    {
+      "path": "tests/test_predict_polyfiqa_lookup_exact.py",
+      "source_sha256": "79705fe643377e6c5852de79b75176636d77e0f469505f056a2dfe8dcd8ce133"
+    },
+    {
+      "path": "tests/test_revenue_years.py",
+      "source_sha256": "39690ad598dc1d57d7fdd79d7161ce74b12d93722b25f2b36bb6f20085026f57"
+    },
+    {
+      "path": "tests/test_select_submission_candidates.py",
+      "source_sha256": "8726beb6e1f5af5a9ef9caeb8f2d0851d8e81e33b3b14ac60178fe3ac1aa18b1"
+    },
+    {
+      "path": "tests/test_summarize_icr_decisive_event_pilot.py",
+      "source_sha256": "43da660ad558a7d1971a61b668bebba310370d0fcb6b000c8b37dc5d987fed9e"
+    },
+    {
+      "path": "tests/test_tables.py",
+      "source_sha256": "c0dd4e7dab1e1c4e76470295e972ff0a46e836fac3e180acb7ee3ccd19fa667b"
+    },
+    {
+      "path": "tests/test_task1_alignment.py",
+      "source_sha256": "3d20e74d655fc38defa88db94814c0ab3d02fdbdfa7b06509a2d4dc87c9bdd33"
+    },
+    {
+      "path": "tests/test_task1_all_released_labels.py",
+      "source_sha256": "8a1c6a8cdad7bf081b28b91e047dbcd639a58658661451ed178bd912845b6b9f"
+    },
+    {
+      "path": "tests/test_task1_annotation_ops.py",
+      "source_sha256": "7ee12e8337aa79df2feb11f751fc17047421d62841944a527560418b776895b3"
+    },
+    {
+      "path": "tests/test_task1_folds.py",
+      "source_sha256": "cfab7f3f24fd8947251e9ec67d7581066c100ada90aad32c507ce44e5367a7e6"
+    },
+    {
+      "path": "tests/test_task1_gliner_fold_ensemble.py",
+      "source_sha256": "13a5c31f41cfec04bd847d61916459c014a5156f8db0c1e347c2db128c638c9c"
+    },
+    {
+      "path": "tests/test_task1_legal_aux.py",
+      "source_sha256": "5fdc5e45912364d2a0595780bdfe592f55ef307a3b9d31441f17ee59ba0dbe24"
+    },
+    {
+      "path": "tests/test_task1_lookup_safe.py",
+      "source_sha256": "4298b0f0932473c4e4fc1a70368ad94438d486ad0df2464c627de79bd11c4574"
+    },
+    {
+      "path": "tests/test_task1_mixed.py",
+      "source_sha256": "6dfb867a744d7e45cc171c7997783bf5cd7bae7f2209d195ddc63577d40f82d6"
+    },
+    {
+      "path": "tests/test_task1_neural_operation_ranker.py",
+      "source_sha256": "6f035a0c361a26dbf9a3b7534645fc36b9efbf6e55231bf205be6b1a66da9d34"
+    },
+    {
+      "path": "tests/test_task1_numeric_baseline.py",
+      "source_sha256": "8b82e93bf16c991598ffc9fc4113a8e80336b2df8661694b8616bf7e0db2556c"
+    },
+    {
+      "path": "tests/test_task1_operation_consensus.py",
+      "source_sha256": "290b2f2c9d09bb7133b60298bc445b6b0db053005585f01353c0e23b3ea3479e"
+    },
+    {
+      "path": "tests/test_task1_policy_composition.py",
+      "source_sha256": "fb1fb0393b39b5aa15627bd7d41e1b293f0ad288382090e44df521190fdc9783"
+    },
+    {
+      "path": "tests/test_task1_postprocess.py",
+      "source_sha256": "02ba6ca51f588fa0e1a3923cccbb466f81194ca8d35b97955131a31c1f2cd906"
+    },
+    {
+      "path": "tests/test_task1_public_label_ensemble.py",
+      "source_sha256": "e5e019aec044ff2911ee3d2ebd267b294d8f847c9887aa83e688bf54aa5662b5"
+    },
+    {
+      "path": "tests/test_task1_public_label_replication.py",
+      "source_sha256": "421bb216eadc754318765486d40d0b0bd494b976ec7d2ab652d3e53f26c36bf7"
+    },
+    {
+      "path": "tests/test_task1_span_surgery.py",
+      "source_sha256": "3f5b5112a54d185e98e238bcc8e5413535c3aa652ea19ee731bacaf7e8f6b88d"
+    },
+    {
+      "path": "tests/test_task1_textual.py",
+      "source_sha256": "d7c8a81cfbc1bf31a5a379fc00742f2f5786260bd432c24f4e7233fd77e420de"
+    },
+    {
+      "path": "tests/test_task1_textual_merge.py",
+      "source_sha256": "d59b59fef294104f8fdd5e5be8f1dafbb2fd738464ef087bd1f0345098b7dfbd"
+    },
+    {
+      "path": "tests/test_task1_textual_multilabel.py",
+      "source_sha256": "a53283bb15ee9ac69cbc3b6c0b316b865980ff5e18b3bd3cb700ff53078a706a"
+    },
+    {
+      "path": "tests/test_train_icr_disagreement_weighted.py",
+      "source_sha256": "8893ac19855c0be6e4b5899627c56e8418857368ca45fa3cc439b13a5cfeb569"
+    },
+    {
+      "path": "tests/test_validate_submission.py",
+      "source_sha256": "dabcb160d1ff289db4bfdebeccc2813a764a435ae12feb9c1111363821c70665"
+    },
+    {
+      "path": "tests/test_validation.py",
+      "source_sha256": "31e65fcdb9655dd5664e39fed3dda2397de80133791ef9c52f91d2ebc7955f01"
+    },
+    {
+      "path": "tests/test_verify_submission_manifest.py",
+      "source_sha256": "ae5b0fc9903a4a0cee16ecc51db94ab22f4ed1113eac46ba2a0d6184bc28be39"
+    },
+    {
+      "path": "docs/icr_disagreement_weighting_preregistration.md",
+      "source_sha256": "c6d5199b28fe6a95ad17865b24b84a31ceadd71372ee4a0b8791a17269b23fb0"
+    },
+    {
+      "path": "docs/icr_distance_aware_loss_preregistration.md",
+      "source_sha256": "24f5d725a0ddbad5ed4443883bca2a6240162a51dbf1fd2c01aa98087bc3433f"
+    },
+    {
+      "path": "docs/icr_distance_aware_seed19_diversity_confirmation_preregistration.md",
+      "source_sha256": "c6b4ae27a662f74a1cac3f4c12cb9874fdb2a28cef2b8fca2f7ce1c86b9dc030"
+    },
+    {
+      "path": "docs/icr_external_refusal_rule_preregistration.md",
+      "source_sha256": "5f8391c13ecba3871b9f8d151cffdeadc3bc2d4c9858821c56cdef1115ef0809"
+    },
+    {
+      "path": "docs/icr_human_rationale_diversity_confirmation_preregistration.md",
+      "source_sha256": "421b8caf07ac7095435a9f84af92bdbf9494159719bd9c57ed1f8fe1729c1d5c"
+    },
+    {
+      "path": "docs/icr_human_rationale_multitask_preregistration.md",
+      "source_sha256": "870257cb14573e19f9bb109912ef18aae8e6d565c53435a4260eea9190cf3c88"
+    },
+    {
+      "path": "docs/icr_multitask_promise_preregistration.md",
+      "source_sha256": "90b59a7cdd1b478d64d9edce7b7fa297c4d564c22ae54509157694062a56eaff"
+    },
+    {
+      "path": "docs/icr_nemotron_japanese_pilot_preregistration.md",
+      "source_sha256": "d9429e5a5d5a7e4c5ec93ea4b10df1ad2f18d50a5a8d8429187248a9748cc315"
+    },
+    {
+      "path": "docs/icr_nemotron_japanese_refusal_confirmation_preregistration.md",
+      "source_sha256": "3a26c0a68c9980957f09a4e662a044d783d3e773c3539f2390b24987dc39b535"
+    },
+    {
+      "path": "docs/icr_transductive_label_shift_preregistration.md",
+      "source_sha256": "f8d1ee2378e107f174d85c2143fdc0ca983549f989284bf1df4a520a09df0ef3"
+    },
+    {
+      "path": "docs/polyfiqa_boilerplate_compression_preregistration.md",
+      "source_sha256": "b82c66b0cd089190c19487fd308b59ec781e9a0ade00e1f98de6a225922dda06"
+    },
+    {
+      "path": "docs/polyfiqa_cash_evidence_recall_confirmation_preregistration.md",
+      "source_sha256": "7ae0578ce88b8c0b5138247e848db4ba0102f9dd5cc55de5afbf6313149d9aa1"
+    },
+    {
+      "path": "docs/polyfiqa_large_content_planner_compliance_amendment.md",
+      "source_sha256": "f1fdf482c9e7c580f4e7fd5294762d5dead21b251d0f9bed833a8e1fcd293ef5"
+    },
+    {
+      "path": "docs/polyfiqa_large_content_planner_preregistration.md",
+      "source_sha256": "d17255ae06fda1a2e819857a51f5c5e1dc664e19c3220c83521397b09dca11ba"
+    },
+    {
+      "path": "docs/polyfiqa_large_planner_intersection_confirmation_preregistration.md",
+      "source_sha256": "889659404b53dd67cbec1161cca2e98ee55155976f4edb1af4d1640dbe4f55a1"
+    },
+    {
+      "path": "docs/polyfiqa_nemotron30b_fact_filter_preregistration.md",
+      "source_sha256": "d34a234fb053c7c729fd5227023e7ca28405e7f3591f3410b1419e5f3d2dbe95"
+    },
+    {
+      "path": "docs/polyfiqa_temporal_sparse_selector_preregistration.md",
+      "source_sha256": "bb93c2895b327bdffb24407cea88211b5967bd895eee412fa0f7a0079d1e6abf"
+    },
+    {
+      "path": "docs/research_log.md",
+      "source_sha256": "7e21eee373e91348972cffde3490f792ce93eba8eb5296df6bac79eb8457fa82"
+    },
+    {
+      "path": "docs/task1_all_released_labels_control_amendment.md",
+      "source_sha256": "cf9b6404d0a2c57963157cba96569eab9e1f07d97295428457b51a7dd393ac2c"
+    },
+    {
+      "path": "docs/task1_all_released_labels_ensemble_preregistration.md",
+      "source_sha256": "18adf401d281018d5f371918f05174e026fda9f809e998987266c25bce2216ff"
+    },
+    {
+      "path": "docs/task1_all_released_labels_preregistration.md",
+      "source_sha256": "b0860cf10cc28631499bf5d419111e0b525fe40c8301fef1039585f7c97e8026"
+    },
+    {
+      "path": "docs/task1_all_released_labels_second_encoder_preregistration.md",
+      "source_sha256": "ad92554686f0c9efcf705fca1051eaf78a8bd4bee7e41af3e5f97f1b48d51d1c"
+    },
+    {
+      "path": "docs/task1_calendar_suffix_dedup_audit_protocol.md",
+      "source_sha256": "3a1ace945f37a3a1433ea9c83cc7f59cd0558fa4d43a599bb19cf29eccad4317"
+    },
+    {
+      "path": "docs/task1_dual_raw_proposer_preregistration.md",
+      "source_sha256": "62693bebebd4df982bf3b9c1246f6dc2e06a3763db3162d629bd0051c67a4083"
+    },
+    {
+      "path": "docs/task1_entity_aware_adaptation_preregistration.md",
+      "source_sha256": "59fdb499fff4f83771deacb028bd347b8514dbf7852826304e4ef5666fa14153"
+    },
+    {
+      "path": "docs/task1_external_operation_calibration_preregistration.md",
+      "source_sha256": "a1666ac4e13025d2dbd8590f6578d6db0069033b62b4408ac99ae8d8c6753263"
+    },
+    {
+      "path": "docs/task1_harm_aware_hurdle_preregistration.md",
+      "source_sha256": "55f879bdab0f2b0af141252edc3ab9cb26b24a1dc778b8accf532ff2bb339672"
+    },
+    {
+      "path": "docs/task1_neural_operation_ranker_preregistration.md",
+      "source_sha256": "7862e8f1b9f8b8678fd822e96a891a71a63b1b7cb6062a842e5fe0b789e88a1a"
+    },
+    {
+      "path": "docs/task1_rank_invariant_hurdle_preregistration.md",
+      "source_sha256": "010c7b953b879c0f27f5db8999d622309968678382512cc7b626a1524f9cb1e9"
+    },
+    {
+      "path": "docs/task1_research_log.md",
+      "source_sha256": "a559a4d6a1867f43129f1f7b1b9a531cffe5d18cda163d4832643522553fdd9e"
+    },
+    {
+      "path": "docs/task3_research_log.md",
+      "source_sha256": "76c8bb0e4cf0347d55c5dff5dccb95898d798aab2f6d4a46b4bb71b00fffef33"
+    },
+    {
+      "path": "papers/task1/main.tex",
+      "source_sha256": "431c995418629ca255f07d4a4403171209b29535293b05adc3044a79c47cca6d"
+    },
+    {
+      "path": "papers/task1/main.pdf",
+      "source_sha256": "75c3a54b7df731d1da5a0cbc0047d6877f8da7d98ddfd351f7c54ba63d7ce2ee"
+    },
+    {
+      "path": "papers/task2/main.tex",
+      "source_sha256": "aeb248c8e326282b956b2028116a64efa66b25092d01f024b969113375768223"
+    },
+    {
+      "path": "papers/task2/main.pdf",
+      "source_sha256": "246bd7aaff8587658b7b302ff3fd124b10641ce21746ef8a8c23ca39ce1b7fce"
+    },
+    {
+      "path": "papers/task3/main.tex",
+      "source_sha256": "b0359fcc4e1abdd33bc78ac9c65707cf53ac1466dc92093a0139435ac3e32a8a"
+    },
+    {
+      "path": "papers/task3/main.pdf",
+      "source_sha256": "cb0dcad11514d822569c7d6507324921d6b63ddb32c52b5f0586979b2c4773f1"
+    },
+    {
+      "path": "papers/common/acl.sty",
+      "source_sha256": "19dfeddc2c0e448f3926a0bef048a9db3f3611b46265b760caabd7ada4f361de"
+    },
+    {
+      "path": "papers/common/acl_natbib.bst",
+      "source_sha256": "6fbb306202290f4b68e74ac1460a8b27398500cb6dfeb4492e74c457eae7cd1e"
+    },
+    {
+      "path": "papers/common/references.bib",
+      "source_sha256": "6928bb403700df38ae5556296db7b1f7ca1e9afa5091b8ddc11931cee3125333"
+    },
+    {
+      "path": "papers/common/ACL_FORMATTING.md",
+      "source_sha256": "9e004a136c5dd43300d97e5bef5eb3a77d0e2a2d3502f0f2436ec011d1c49e9c"
+    },
+    {
+      "path": "papers/README.md",
+      "source_sha256": "0a3978796b8821876f525872661feea3fded802d6c35fa9dd67230ec359c342e"
+    },
+    {
+      "path": "papers/build.sh",
+      "source_sha256": "87f4c3f25a7831991d86ae144a15f2ad728e26804e6a7f1e4e40e23d4f30e6a0"
+    },
+    {
+      "path": "papers/package.sh",
+      "source_sha256": "8e78373de97509c891c89aa924d562d43313ac639ac1ba2f662352bb762a8f9e"
+    },
+    {
+      "path": "papers/conference/FinNLP65ADMLPoster.pdf",
+      "source_sha256": "6a99152b57a1a62a9c161b66c461f1e5a9efccb216805f6c19999286a3c71fa5"
+    },
+    {
+      "path": "papers/conference/FinNLP65ADMLPoster.svg",
+      "source_sha256": "e553503c47e5830644db910fac9210f3bdcb797d27f079ecf82adfb6b13f22d4"
+    },
+    {
+      "path": "papers/conference/FinNLP65ADMLPosterPreview.png",
+      "source_sha256": "190b789c85bcbf7c589f93fca152b808ca98cbf09d2c143c6ecf67f26c6a0e96"
+    },
+    {
+      "path": "papers/conference/FinNLP65ADMLSlides.pdf",
+      "source_sha256": "7891ff0aa9512820564d133e9c0ee7e5c9795d03facbea76fbcc4197c65c8b06"
+    },
+    {
+      "path": "papers/conference/FinNLP65ADMLSlides.pptx",
+      "source_sha256": "720b8517a038d26952aca19b81f832d2e9de1212dcd44ef26d1470ad4f89b76c"
+    },
+    {
+      "path": "papers/conference/FinNLP65ADMLSlidesPreview.jpg",
+      "source_sha256": "b172a586a1a21dbcbd8dda021dbc4e18ef1e1b8fcb860521f1fe0dba24fa0e80"
+    },
+    {
+      "path": "papers/conference/FinNLP65ADMLVideo.mp4",
+      "source_sha256": "7f03c3ead80283299861b0936a3308202966d0c98f9622ef473c8828c74b4c39"
+    },
+    {
+      "path": "papers/conference/FinNLP65ADMLVideo.srt",
+      "source_sha256": "32ec0ef129871573a5111f9b44b4f3a846fe18a8aa7ca3c4c8697f05e2e3bdfd"
+    },
+    {
+      "path": "papers/conference/FinNLP65ADMLVideo.vtt",
+      "source_sha256": "9eea6ac86c12142c148d9473a315bf85f09e070657e2c07ba7259c075b0fc45a"
+    },
+    {
+      "path": "papers/conference/poster/build.py",
+      "source_sha256": "982e00d62e933fa38994316ca91fb6b59f36b58e122088dd55f1e8e1a2a3be90"
+    },
+    {
+      "path": "papers/conference/poster/content.json",
+      "source_sha256": "98f0a063f1ba044fdce31354d9b199270c958e55014bd58e8ffc9e01bb94150a"
+    },
+    {
+      "path": "papers/conference/poster/LICENSE-DejaVu.txt",
+      "source_sha256": "e81d9dced49fea2a7d576cbea283873de58563c5d488f954deb282843c3ea79c"
+    },
+    {
+      "path": "papers/conference/poster/poster_text.txt",
+      "source_sha256": "7b0e87115a7cbbe6c01978ebd02a4f00f45169e2a4d8c4f71cf38fd6af457714"
+    },
+    {
+      "path": "papers/conference/poster/build_checks.json",
+      "source_sha256": "094cfc9fb7dec1f60d719751d521987274d5617dfb04edd5b56e1c6b698caa1c"
+    },
+    {
+      "path": "papers/conference/poster/sources.md",
+      "source_sha256": "8c93b7258b80b66e0201397b57babb1aee682055552ef249715f7f4b083d0b99"
+    },
+    {
+      "path": "papers/conference/poster/assets/emnlp_2026_logo_v1.png",
+      "source_sha256": "31440c235e0cd34f57830806abd2185d32c1536a9f0bf6cf275631796b672b6c"
+    },
+    {
+      "path": "papers/conference/poster/assets/provenance.json",
+      "source_sha256": "040ae4f9dfec8f98a66fb887d6ba025eed42f7e675eae28728400241f2281e1e"
+    },
+    {
+      "path": "papers/conference/video/build_slides.py",
+      "source_sha256": "0b8d2477888fae3e0e83d2c6b4ca3866523670239c6089b9f7d930be659bfb2f"
+    },
+    {
+      "path": "papers/conference/video/script.json",
+      "source_sha256": "118b95a63f0ef4c968d6bc4a412ea3b5410514d4777d563abd72038107c11a54"
+    },
+    {
+      "path": "papers/conference/video/script.md",
+      "source_sha256": "0372852db066f886cbd100e71b041f0562a789cf48d87cacd374a131dd036930"
+    },
+    {
+      "path": "papers/conference/video/slide_text.json",
+      "source_sha256": "850e82b041f9bc5bab3287df4677ff4455fe7a701995c5dc46757da3a6c1a9ee"
+    },
+    {
+      "path": "papers/conference/video/requirements-render.txt",
+      "source_sha256": "cecbca8fa80787630e6e2d4f85d6fcf60f70ca14397388a704e81a3e013c8cab"
+    },
+    {
+      "path": "artifacts/task1_conservative_composition_grouped_seed_v1/summary.json",
+      "source_sha256": "2b20f652581c3adf44170c98fb3424965ac8cf6edb17f0869b84f9cb5027ace9"
+    },
+    {
+      "path": "artifacts/task1_entity_aware_fold0_v1/evaluation.json",
+      "source_sha256": "b2bdaf3fc9a74ec702135c61310f962d92751e30e2abda6c407e5c3813f12464"
+    },
+    {
+      "path": "artifacts/task2_distance_aware_seed19_confirmation_v1/evaluation.json",
+      "source_sha256": "a50b484280cc0790c3c9b18beb0039a6b8dd369d86bb56007c87f0c587d26cd7"
+    },
+    {
+      "path": "artifacts/task2_distance_aware_seed19_confirmation_v1/summary.json",
+      "source_sha256": "3d1efda7f7b545baf2981c0837c3ef9a13d8ebbd05b48799dd8c387f42d40cbe"
+    },
+    {
+      "path": "artifacts/polyfiqa_sparse_edit_oracle_v1/summary.json",
+      "source_sha256": "7f18106c10eb3f36dd3b85e37a70cb9c4a8032a808800ef60dd01262480911a9"
+    }
+  ],
+  "public_adaptations": [
+    "Final runner uses the active interpreter and resolves caller paths.",
+    "Poster builder reads a pinned research inventory instead of private Git history.",
+    "Public documentation, data manifest, downloader, release checks and tests are added.",
+    "Public manuscript author blocks omit the personal contact email; PDFs rebuilt from those sources.",
+    "The poster footer links to the public companion repository with a vector QR code.",
+    "Seven research integration tests report explicit skips when unbundled datasets/artifacts are unavailable; --require-external-data makes missing inputs fatal.",
+    "Public Git commits use the account-specific GitHub no-reply email."
+  ]
+}

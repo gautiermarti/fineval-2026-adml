@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "files": 209,
+    "physical_lines": 38913
+  },
+  "src": {
+    "files": 32,
+    "physical_lines": 4622
+  },
+  "tests": {
+    "files": 99,
+    "physical_lines": 4933
+  },
+  "preregistration_documents": 25,
+  "source_commit": "557bf382e8e64a6742f117213419cff67484c18e"
+}

@@ -1,0 +1,15 @@
+pandas
+pyarrow
+requests
+beautifulsoup4
+rapidfuzz
+pyahocorasick
+rouge-score
+scikit-learn
+sentence-transformers
+pytest
+ipadic==1.0.0
+protobuf>=5,<7
+gliner==0.2.24
+peft==0.20.0
+gdown==6.1.0

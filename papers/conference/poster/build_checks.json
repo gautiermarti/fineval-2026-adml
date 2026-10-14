@@ -1,0 +1,58 @@
+{
+  "page_mm": [
+    841,
+    1189
+  ],
+  "page_points": [
+    2383.9370078740158,
+    3370.393700787402
+  ],
+  "orientation": "portrait",
+  "page_count": 1,
+  "all_drawn_text_inside_10mm_safe_area": true,
+  "all_images_inside_10mm_safe_area": true,
+  "smallest_text_pt": 17,
+  "main_body_text_pt": "24\u201326",
+  "graphics": "vector text, shapes and charts; original official EMNLP logo PNG",
+  "qr_code": {
+    "url": "https://github.com/gautiermarti/fineval-2026-adml",
+    "size_mm": 35.98333333333333,
+    "modules": 33,
+    "quiet_zone_modules": 4,
+    "error_correction": "M",
+    "rendering": "vector",
+    "bounds_points": [
+      72,
+      3230,
+      174,
+      3332
+    ]
+  },
+  "files": {
+    "FinNLP65ADMLPoster.pdf": {
+      "bytes": 521741,
+      "sha256": "99e5a6f3a64af890cb70597ada1d53eab503d3f16aa658366bcaaf9ff0192181"
+    },
+    "FinNLP65ADMLPoster.svg": {
+      "bytes": 2461853,
+      "sha256": "ee1b20214c8c78bbe1a09107d7d3e69507c93c2fa8d959ee9b4ba66d7e5cce7a"
+    }
+  },
+  "repository_counts": {
+    "scripts": {
+      "files": 209,
+      "physical_lines": 38913
+    },
+    "src": {
+      "files": 32,
+      "physical_lines": 4622
+    },
+    "tests": {
+      "files": 99,
+      "physical_lines": 4933
+    },
+    "preregistration_documents": 25,
+    "source_commit": "557bf382e8e64a6742f117213419cff67484c18e"
+  },
+  "approval_status": "See poster/README.md for approval and delivery status"
+}

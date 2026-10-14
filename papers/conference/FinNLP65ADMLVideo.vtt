@@ -1,0 +1,323 @@
+WEBVTT
+
+1
+00:00:00.650 --> 00:00:03.311
+We entered all three FinEval tasks:
+
+2
+00:00:03.311 --> 00:00:08.590
+Greek financial named entity recognition,
+Japanese implicit communication
+
+3
+00:00:08.590 --> 00:00:12.680
+recognition, and multilingual financial
+question answering.
+
+4
+00:00:12.680 --> 00:00:18.002
+ADML ranked first in Greek, joint first in
+Japanese, and second in question
+
+5
+00:00:18.002 --> 00:00:18.989
+answering.
+
+6
+00:00:19.369 --> 00:00:25.124
+This FinNLP presentation accompanies our
+question answering poster.
+
+7
+00:00:25.124 --> 00:00:30.122
+It covers the agentic research workflow, the
+models we tried across all three
+
+8
+00:00:30.122 --> 00:00:33.108
+tasks, and the systems we submitted.
+
+9
+00:00:33.108 --> 00:00:38.149
+Our results were strong, but the final
+systems were much simpler than those
+
+10
+00:00:38.149 --> 00:00:40.353
+we had spent the competition developing.
+
+11
+00:00:41.203 --> 00:00:46.157
+Our agentic research loop started with the
+data and the scoring code.
+
+12
+00:00:46.157 --> 00:00:51.956
+Reproduce a baseline, inspect failures,
+propose a hypothesis, implement an
+
+13
+00:00:51.956 --> 00:00:54.725
+experiment, and decide whether to keep the
+change.
+
+14
+00:00:54.725 --> 00:00:58.369
+We recorded negative results alongside
+improvements.
+
+15
+00:00:58.749 --> 00:01:04.558
+Validation reflected the task: related
+entity surfaces for Greek, held out
+
+16
+00:01:04.558 --> 00:01:09.166
+sources for Japanese, and held out companies
+or reporting periods for question
+
+17
+00:01:09.166 --> 00:01:14.034
+answering. We tracked the average score,
+which examples were corrected, which
+
+18
+00:01:14.034 --> 00:01:18.883
+were harmed, and whether improvements
+carried over to another source or period.
+
+19
+00:01:19.458 --> 00:01:24.153
+The archived repository contains two hundred
+and nine scripts, thirty two
+
+20
+00:01:24.153 --> 00:01:30.014
+source modules, ninety nine test files, and
+twenty five preregistration documents.
+
+21
+00:01:30.864 --> 00:01:37.182
+For Greek entities, we explored GreekBERT,
+legal encoders, XLM-R, and GLiNER
+
+22
+00:01:37.182 --> 00:01:41.920
+proposals, with separate numeric processing
+and conservative span repairs.
+
+23
+00:01:41.920 --> 00:01:47.610
+For Japanese intent, we investigated BERT
+ensembles, RoBERTa, ModernBERT,
+
+24
+00:01:47.610 --> 00:01:52.305
+and a nine billion parameter Nemotron model,
+alongside domain adaptation
+
+25
+00:01:52.305 --> 00:01:54.032
+and ordinal decoding.
+
+26
+00:01:54.564 --> 00:01:59.713
+For question answering, trials included an
+Eva four billion parameter adapter,
+
+27
+00:01:59.713 --> 00:02:03.196
+Qwen answer generators, and larger fact
+planners.
+
+28
+00:02:03.196 --> 00:02:08.238
+The structured approach tracked periods,
+units, arithmetic, and evidence
+
+29
+00:02:08.238 --> 00:02:10.706
+before considering small answer edits.
+
+30
+00:02:11.086 --> 00:02:14.450
+We rejected many candidates after
+validation.
+
+31
+00:02:14.450 --> 00:02:18.604
+ModernBERT made every Japanese validation
+fold worse.
+
+32
+00:02:18.604 --> 00:02:23.494
+A Qwen fact filter improved average fact set
+F one, but harmed one issuer
+
+33
+00:02:23.494 --> 00:02:27.886
+beyond our allowed threshold. Conservative
+Greek span consensus corrected
+
+34
+00:02:27.886 --> 00:02:31.521
+four validation examples without introducing
+a new error.
+
+35
+00:02:31.521 --> 00:02:36.367
+We had inspected that validation set
+repeatedly, so these gains still needed
+
+36
+00:02:36.367 --> 00:02:37.995
+confirmation on fresh data.
+
+37
+00:02:38.845 --> 00:02:43.388
+The question answering experiment
+illustrates the central difficulty.
+
+38
+00:02:43.388 --> 00:02:48.148
+On one hundred and ninety two historical
+examples, the grounded baseline
+
+39
+00:02:48.148 --> 00:02:51.015
+scored about point three six five in
+ROUGE-1.
+
+40
+00:02:51.015 --> 00:02:55.677
+An oracle, allowed to see the reference
+answer and choose the best sparse
+
+41
+00:02:55.677 --> 00:02:58.753
+edit, reached about point four zero three.
+
+42
+00:02:59.133 --> 00:03:03.730
+Our nested company held out selector chose
+to make no edits, retaining the
+
+43
+00:03:03.730 --> 00:03:08.382
+baseline. In a separate temporal transfer
+test, all four changed answers
+
+44
+00:03:08.382 --> 00:03:12.601
+became worse. The oracle showed that useful
+edits existed.
+
+45
+00:03:12.601 --> 00:03:16.344
+Choosing them for a new company or reporting
+period remained the problem,
+
+46
+00:03:16.344 --> 00:03:19.530
+and keeping the baseline was the best
+decision from validation.
+
+47
+00:03:20.380 --> 00:03:23.875
+The final data audit changed our competition
+strategy.
+
+48
+00:03:23.875 --> 00:03:29.587
+Every Greek test query, and all seventy six
+question answering queries, matched
+
+49
+00:03:29.587 --> 00:03:35.969
+earlier public inputs. The organizers
+allowed external data, so we retrieved
+
+50
+00:03:35.969 --> 00:03:40.037
+the matching public reference answers for
+those two tasks.
+
+51
+00:03:40.037 --> 00:03:45.272
+For Japanese intent, we used deterministic
+rules based on explicit commitment
+
+52
+00:03:45.272 --> 00:03:46.938
+and refusal cues.
+
+53
+00:03:47.318 --> 00:03:50.185
+The final runner used no neural model.
+
+54
+00:03:50.185 --> 00:03:55.118
+Question answering scored almost one on the
+public portion and point three
+
+55
+00:03:55.118 --> 00:03:58.948
+seven three on the private portion, placing
+second.
+
+56
+00:03:58.948 --> 00:04:02.517
+The gap suggests that the reference answers
+changed between versions.
+
+57
+00:04:02.517 --> 00:04:06.131
+We could not check this directly because the
+private reference answers were
+
+58
+00:04:06.131 --> 00:04:07.190
+unavailable.
+
+59
+00:04:08.040 --> 00:04:12.367
+The disappointment was that the final
+benchmark gave us little opportunity
+
+60
+00:04:12.367 --> 00:04:15.786
+to test the models we had developed for new
+inputs.
+
+61
+00:04:15.786 --> 00:04:20.978
+We submitted retrieval for Greek and
+question answering, and a semantic rubric
+
+62
+00:04:20.978 --> 00:04:26.885
+for Japanese. The hidden test therefore left
+the broader model work unresolved.
+
+63
+00:04:27.265 --> 00:04:30.640
+For future tasks, we would keep three
+practices:
+
+64
+00:04:30.640 --> 00:04:36.006
+check the data and reference versions, test
+on new sources and periods, and
+
+65
+00:04:36.006 --> 00:04:38.343
+keep a record of failed experiments.
+
+66
+00:04:38.343 --> 00:04:43.167
+Agents helped us build and test candidates,
+and the validation results guided
+
+67
+00:04:43.167 --> 00:04:46.175
+what we kept. Thank you.

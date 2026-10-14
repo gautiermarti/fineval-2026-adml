@@ -1,0 +1,234 @@
+\documentclass[11pt]{article}
+\usepackage[final]{acl}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage{times}
+\else
+  \usepackage{fontspec}
+  \setmainfont{TeXGyreTermesX}
+\fi
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{amsmath}
+\usepackage{url}
+
+\title{ADML at the FinEval 2026: Public-Memory Retrieval and Conservative Span Consensus for Greek Financial NER}
+
+\author{Gautier Marti \\
+  ADIA
+  \And
+  Khaled AlNuaimi \\
+  ADIA \\
+  Khalifa University}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We describe ADML's first-place system for the FinEval 2026 Greek Financial Named Entity Recognition subtask. The task combines textual entities (person, organization, and location) with five numeric entity types in Greek financial reports. Our development system routes the two ontologies separately and uses conservative consensus across legal/financial BERT taggers and GLiNER span proposals. A provenance audit revealed that every released test query exactly matched an example in earlier public Plutus resources. Because the rules explicitly permitted external data, our selected system retrieved only full-query matches from those resources and retained the model ensemble as a fail-closed fallback. The retrieval lane obtained 1.0000 entity F1 on the 60-item public split and 0.9676 on the 140-item private split, ranking first. The private decrease despite exact input overlap exposes annotation-version drift and motivates reporting both the high-performing memory system and the independently validated fallback.
+\end{abstract}
+
+\section{Introduction}
+Greek financial NER combines rich inflection, long legal names, specialized numerical expressions, and annotation conventions that are difficult to infer from surface form alone. Plutus introduced GRFinNER and GRFinNUM as expert-annotated benchmarks for textual and numeric financial entities \citep{peng-etal-2025-plutus}; MultiFinBen subsequently placed them in a broader multilingual financial evaluation \citep{peng-etal-2026-multifinben}. FinEval 2026 evaluates a mixed 200-query packet with entity-level precision, recall, and F1.
+
+Our work began with a conventional model-development question: how can multiple span views improve boundary decisions without letting a high-recall proposer damage a strong incumbent? We used entity-linked validation groups, explicit rescue/harm accounting, and conservative composition. After test release, a separate provenance audit found complete overlap with earlier public Plutus prompts. The organizer later confirmed that additional external data was allowed. We therefore submitted two auditable lanes: (i) the input-only grouped-consensus ensemble and (ii) exact public-memory retrieval with the ensemble as fallback. The latter was selected and won the private leaderboard.
+
+Our contributions are: (1) an ontology-routed NER pipeline with conflict-safe span consensus; (2) a strict, provenance-aware full-query retrieval policy that never matches on ID alone; and (3) evidence that identical benchmark inputs can carry revised private annotations, since perfect public retrieval fell to 0.9676 privately.
+
+\section{Task and Data}
+GRFinNER labels \textsc{Person}, \textsc{Organization}, and \textsc{Location}; GRFinNUM labels money, percentages, temporal expressions, quantities, and other numerals. The original resources contain 500 sentences per track and report high inter-annotator agreement \citep{peng-etal-2025-plutus}. We used the released 320/80 train/validation split for each track and preserved the organizer files byte-for-byte. The competition test packet contains 100 queries from each ontology, split into 60 public and 140 private items. Predictions are newline-separated ``entity, label'' pairs, and evaluation uses exact entity-level matching.
+
+We additionally retained earlier public test snapshots from \texttt{TheFinAI/plutus-finner-numeric} and \texttt{TheFinAI/plutus-finner-text}. Their timestamps precede the competition test release. Current hidden labels were never available during inference or selection.
+
+The two tracks share an output format but not a label inventory.  We therefore
+evaluate and route them independently before restoring the original mixed-row
+order.  For a set of predicted entity--type pairs $P$ and gold pairs $G$, the
+official measure is $2|P\cap G|/(|P|+|G|)$ after pooling the evaluated rows.
+Consequently, a correct surface with the wrong type and an almost-correct span
+both count as errors.  Our development tables instead average the same F1 over
+rows so that a correction on an entity-dense sentence cannot hide regressions
+on short sentences.
+
+\section{System}
+\subsection{Ontology routing and fallback models}
+The instruction text unambiguously identifies the requested ontology, preventing the same sentence from being interpreted simultaneously as textual and numeric NER. Numeric prediction combines sequence labeling with deterministic recovery for identifiers, percentages, currency expressions, dates, and quantities. One frozen normalization strips Greek ordinal suffixes from calendar-day mentions only when the train and validation annotations consistently select the numeric core: 23 supported occurrences and no counterexamples.
+
+For textual NER, three BERT taggers initialized from Greek legal and finance-oriented encoders provide flat spans; a multilabel tagger supplies nested alternatives. Legal-domain initialization follows the motivation of LEGAL-BERT \citep{chalkidis-etal-2020-legal}. GLiNER \citep{zaratiana-etal-2024-gliner} supplies open span proposals from a full model and five entity-linked folds. Rather than union all spans, we apply three ordered policies: annotation-operation corrections, structural boundary repairs, and high-confidence cross-view union. Global conflict resolution removes incompatible overlaps but preserves supported nesting.
+
+Validation groups link repeated entity surfaces so that an entity name cannot appear in both training and evaluation folds. This matters more than random splitting for legal names and organizations. Candidate changes are promoted only when independent proposer views agree; we record changed rows, rescues, harms, type-level F1, and a group bootstrap interval.
+
+More precisely, each proposer converts an incumbent prediction into a set of
+atomic operations: add a typed span, delete a typed span, or replace one
+boundary/type pair with another.  Operations, rather than complete prediction
+sets, are compared across views.  This allows agreement on one repair without
+requiring the models to agree on every other entity in the sentence.  A
+proposal must be supported by at least two label-free deployment views, after
+which the operations are applied in the fixed order below.
+
+\begin{enumerate}
+\item \textbf{Annotation operations} repair a span or type when independent
+  calibrated proposer views emit the same operation.
+\item \textbf{Structural repair} restores a supported container span around a
+  nested entity or removes a demonstrably incompatible crossing span.
+\item \textbf{High-confidence union} adds a missing span only when its support
+  clears the stricter cross-model threshold.
+\end{enumerate}
+
+The complete candidate is rejected if serialization changes the row count,
+introduces a label outside the routed ontology, emits a surface absent from the
+input, or creates an unresolved crossing span.  These invariants also caught a
+stale numeric-cache error during rehearsal: a calendar expression contained
+both the Greek ordinal form and its normalized numeric core.  Normalization is
+now idempotent and runs before and after textual/numeric merging.
+
+\subsection{Entity-aware adaptation control}
+We also tested whether domain-adaptive pretraining could remove errors before
+span composition.  The preregistered comparison keeps the downstream model,
+seed, optimizer, and seven-epoch schedule fixed while varying only the encoder:
+untouched Greek Legal BERT, matched random-token masked-language modeling
+(MLM), or whole-entity MLM.  For fold~0, every occurrence of a held-out entity
+surface and every exact validation sentence was removed from the silver
+corpus.  The resulting corpus contained 885 chunks and 1,438 silver spans.
+This is a deliberately hard leakage check: morphological variants may remain,
+but the adaptation model cannot memorize the evaluated entity strings.
+
+The experiment had a futility gate before the other four folds were run.  The
+entity arm had to beat both controls by .005, rescue more rows than it harmed,
+avoid a type regression larger than .01, and be nonnegative on at least two
+types.  It failed every efficacy condition.  We stopped without modifying the
+masking rate or training duration; this negative result prevents the held fold
+from becoming an informal tuning set.
+
+\subsection{Public-memory lane}
+For each test query, we first infer the ontology and then search public historical records in the following order: exact query, whitespace/NFKC-normalized query, and exact task-text packet. We retrieve only the associated answer from the same ontology. No task ID, issuer name, or fuzzy nearest neighbor is sufficient. An unmatched query falls through to the grouped-consensus model. All 200 competition queries matched by exact query, so the selected output contains no fallback row.
+
+This is intentionally a memory system, not a claim that the model regenerated the annotations. Its use was enabled by the competition's external-data rule and is disclosed in the code and submission comment.
+
+The provenance audit is part of inference rather than a one-time manual
+observation.  It verifies the current input and historical snapshot hashes,
+checks that every historical record predates the test packet, reports coverage
+separately for both ontologies, and aborts on duplicate queries with conflicting
+answers.  Thus ``200/200 matched'' means 200 unique, task-consistent key--value
+lookups.  This design avoids a subtler failure mode in which the same Greek
+sentence appears under two extraction instructions and is assigned an answer
+from the wrong ontology.
+
+\section{Experiments}
+Table~\ref{tab:results} separates label-independent development from leaderboard results. Macro entity F1 in our local diagnostics averages item-level entity F1, whereas the official leaderboard reports pooled entity precision, recall, and F1.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{@{}llrr@{}}
+\toprule
+Split & System & Score & $\Delta$ \\
+\midrule
+Text val. & flat/nested incumbent & .9208 & -- \\
+Text val. & grouped consensus & \textbf{.9332} & +.0123 \\
+Text fold 0 & base encoder & \textbf{.8064} & -- \\
+Text fold 0 & entity-aware MLM & .7580 & -.0484 \\
+Num. val. & refit + normalization & .9850 & .0000 \\
+Public & input-only consensus & .9665 & -- \\
+Public & exact public memory & \textbf{1.0000} & +.0335 \\
+Private & exact public memory & \textbf{.9676} & -- \\
+\bottomrule
+\end{tabular}
+\caption{Development macro entity F1 and official leaderboard entity F1. The selected private system ranked first.}
+\label{tab:results}
+\end{table}
+
+Grouped consensus improved four of 80 textual validation rows and harmed none; its group-bootstrap 5th percentile was +.0027 and $P(\mathrm{gain})=.9842$. In contrast, a preregistered entity-aware domain-adaptive pretraining experiment \citep{gururangan-etal-2020-dont} failed at its first held-out fold: whole-entity masking scored .7580 versus .8064 for the untouched encoder, with 8 rescues and 10 harms. We stopped rather than tune on that fold.
+
+The consensus improvement is not driven by a single entity class.  Relative
+to the .9208 incumbent, row-macro type F1 rises by .0514 for
+\textsc{Person}, .0262 for \textsc{Organization}, and .0215 for
+\textsc{Location}.  A second seed yields a slightly lower .9323 overall and a
+negative person delta, so it is retained as a diversity view rather than
+declared a replacement.  The selected seed-7 composition is reproduced from
+five saved fold checkpoints and one full-data proposer; its three accepted
+operations are identical to the original validation artifact.
+
+The adaptation control points in the opposite direction.  Untouched,
+random-MLM, and entity-MLM encoders score .8064, .7557, and .7580 on fold~0.
+Whole-entity masking reduces person, organization, and location F1 by .1579,
+.0194, and .0498 relative to the untouched control.  Domain exposure therefore
+did not fail merely because one rare type moved adversely.  A plausible
+interpretation is that continued MLM perturbed useful legal-language
+representations while offering no new supervision for exact span boundaries;
+the design does not let us distinguish forgetting from noisy silver spans.
+
+The selected retrieval system achieved equal private precision and recall (.9676). Because all 200 inputs were exact historical matches, the 3.24-point public-to-private gap cannot be an input retrieval failure. It instead indicates that some hidden annotations differ from the earlier public references. Without private labels we cannot identify whether those differences are span, type, or serialization revisions.
+
+The input-only system's .9665 public score is useful context: nearly all of the
+winning performance can be obtained without answer memory, and the remaining
+3.35 public points quantify the benefit of exact historical labels on that
+split.  Conversely, the selected system's private result shows that memory did
+not guarantee a perfect score.  Since precision and recall are equal, the
+aggregate mismatch contains equal numbers of false-positive and false-negative
+entity pairs, which is consistent with boundary/type substitutions but does not
+identify them.
+
+\subsection{Likely error mechanisms}
+Exact-input coverage rules out missing retrieval keys, but several annotation
+changes remain observationally equivalent under the aggregate score.  A gold
+span may add or remove a legal suffix, a nested entity may be promoted or
+suppressed, or a surface may retain its boundary and change type.  Numeric
+expressions add formatting choices: currency symbols, ordinal suffixes, and
+date components can be annotated jointly or separately.  Each substitution
+creates one false positive and one false negative, explaining why equal
+precision and recall are compatible with label revision.
+
+We considered but rejected using public performance to learn a global rewrite
+of the historical answers.  Public F1 of 1.0000 supplies no evidence about
+which convention was changed privately, and an unconditional boundary rule
+could damage both tracks.  Likewise, fuzzy retrieval would increase neither
+coverage nor evidence: all raw queries already match.  The only defensible
+private-time action was to preserve the frozen exact-memory output and report
+the uncertainty.  A post-competition error analysis requires organizers to
+release either private labels or a version-difference summary.
+
+\subsection{Selection discipline}
+All development changes used immutable validation predictions and a
+rescue/harm ledger.  A rescue is a row whose F1 strictly increases; a harm is a
+row whose F1 strictly decreases.  We resample entity-linked groups, not rows,
+when estimating the gain distribution.  The public leaderboard was used only
+to choose between the already-built input-only and explicitly permitted memory
+lanes.  No public score was used to alter retrieval keys, normalization, or a
+model threshold.  The final runner reproduces the submitted CSV byte-for-byte
+and refuses partial retrieval coverage rather than silently mixing unknown
+provenance into the selected lane.
+
+\subsection{Operational profile}
+The selected path performs Unicode normalization, hash-table lookup, validation,
+and serialization on CPU, with memory linear in the 200-record historical
+index.  It makes no API call and loads no neural checkpoint.  The fallback is
+more expensive: five fold GLiNER checkpoints are loaded sequentially, proposal
+files are persisted, and composition runs after accelerator memory is released.
+Sequential loading keeps peak memory independent of the number of proposer
+views.  This separation makes the competition result reproducible on a
+CPU-only verifier while retaining the model path for queries absent from memory.
+
+Every stage is fail-closed.  The mixed-packet extractor checks 100 textual and
+100 numeric rows; per-track prediction checks labels and source spans; the
+merger checks original row order; and a detached manifest verifies input,
+candidate, and selected-output hashes.  These checks do not improve F1, but
+prevent a stale numeric prediction or cross-ontology answer from being mistaken
+for a modeling gain.
+
+\section{Discussion and Conclusion}
+The result illustrates both the strength and brittleness of benchmark memory. Exact public provenance produced the winning score, but exact input identity did not imply annotation identity. The fallback ensemble remains scientifically important: it reaches .9332 on leakage-resistant textual validation and .9665 on the public leaderboard without reference lookup. Conservative composition also outperformed entity-aware continued pretraining, showing that the remaining error was often an annotation-boundary decision rather than missing domain language knowledge.
+
+Future evaluations should version inputs and labels together and declare whether previous benchmark answers are admissible. Systems should report overlap-stratified scores. We conclude that strict provenance, explicit fallback behavior, and harm-controlled span consensus are necessary companions to any high-performing memory lane.
+
+\section*{Limitations}
+Our selected system depends on historical public answers and therefore does not generalize to novel queries. The exact-match requirement limits accidental transfer but not annotation drift. Our development F1 and official pooled F1 are not directly interchangeable. Finally, private labels were unavailable, so our explanation of the public/private gap is an inference from exact input coverage, not a direct error analysis.
+
+\clearpage
+\bibliography{references}
+
+\appendix
+\section{Reproducibility Details}
+The selected workflow is deterministic, CPU-only, and contains no model API call. Reference files, predictions, and official inputs are SHA-256 pinned. The submitted CSV hash begins \texttt{424d4f95b749}; the manifest records the complete digest. Submission ID begins \texttt{b97c9c39}; it scored 1.0000 public and 0.9675926 private entity F1. The model fallback uses BERT-base-scale components and GLiNER, all far below the 70B parameter limit. Historical snapshots inherit their releases' licensing state and are supplied only as pinned organizer-verification inputs, not republished as a new dataset.
+
+\end{document}

@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fineval-2026-adml"
+version = "1.0.0"
+description = "ADML FinEval 2026 research and reproducibility companion"
+requires-python = ">=3.12"
+dependencies = ["pandas>=3.0,<4", "pyarrow>=25,<26"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "src"]
+testpaths = [
+  "tests_release",
+  "tests/test_task1_lookup_safe.py",
+  "tests/test_predict_icr_explicit_rubric.py",
+  "tests/test_predict_polyfiqa_lookup_exact.py",
+  "tests/test_build_official_submission_csvs.py",
+]

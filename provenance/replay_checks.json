@@ -1,0 +1,24 @@
+{
+  "python": "3.12.3",
+  "checks": [
+    {
+      "task": 1,
+      "actual_sha256": "424d4f95b749079e8d3551699d041fd01e183b4905246495c8c8b41d6e8e6100",
+      "expected_sha256": "424d4f95b749079e8d3551699d041fd01e183b4905246495c8c8b41d6e8e6100",
+      "matches": true
+    },
+    {
+      "task": 2,
+      "actual_sha256": "d8d227ce7d7fce462dfe40268f2b53ea45a192bd7a33b89e1f87d4fe4dacdf9a",
+      "expected_sha256": "d8d227ce7d7fce462dfe40268f2b53ea45a192bd7a33b89e1f87d4fe4dacdf9a",
+      "matches": true
+    },
+    {
+      "task": 3,
+      "actual_sha256": "158ed1e8d3982dde1f0b25bd977ca3783334e8e0cff266aa6c9f31045c40fec4",
+      "expected_sha256": "158ed1e8d3982dde1f0b25bd977ca3783334e8e0cff266aa6c9f31045c40fec4",
+      "matches": true
+    }
+  ],
+  "all_passed": true
+}

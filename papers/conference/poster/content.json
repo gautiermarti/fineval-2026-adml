@@ -1,0 +1,114 @@
+{
+  "title_lines": [
+    "ADML at the FinEval 2026:",
+    "Version-Aware Retrieval and Grounded Sparse Editing",
+    "for Multilingual Financial QA"
+  ],
+  "authors": "Gautier Marti¹  ·  Khaled AlNuaimi¹˒²",
+  "affiliations": "¹ ADIA     ² Khalifa University",
+  "subtitle": "Agent-led research across three tasks, with financial QA as a case study",
+  "results": [
+    {"task": "Greek financial NER", "rank": "1st", "metric": "Entity F1  0.9676"},
+    {"task": "Japanese implicit communication", "rank": "Tied 1st", "metric": "Accuracy  0.9714 · 34/35"},
+    {"task": "Multilingual financial QA", "rank": "2nd", "metric": "ROUGE-1 F1  0.3726"}
+  ],
+  "thesis_title": "Extensive research led to simple final submissions.",
+  "thesis_body": "The agent built and tested models; the evaluation ultimately favored exact retrieval and explicit rules.",
+  "loop": [
+    ["Audit", "Data, metric, provenance"],
+    ["Hypothesize", "Target a failure mode"],
+    ["Implement", "Models and experiments"],
+    ["Evaluate", "Groups, seeds, time"],
+    ["Keep or reject", "Log evidence; iterate"]
+  ],
+  "research_cards": [
+    {
+      "tag": "TASK 1 · GREEK NER",
+      "title": "Repair spans conservatively",
+      "models": "Greek BERT, Greek Legal BERT, XLM-R, GLiNER",
+      "methods": "Domain adaptation; numeric rules; nested spans; annotation-operation learning; cross-seed consensus.",
+      "validation": "Entity-linked folds; count corrections and newly introduced errors.",
+      "retained": "Legal/financial encoders + validated span consensus."
+    },
+    {
+      "tag": "TASK 2 · JAPANESE ICR",
+      "title": "Model commitment, not sentiment",
+      "models": "Tohoku BERT, Rinna RoBERTa, ModernBERT, Nemotron 9B",
+      "methods": "Ordinal decoding/losses; EDINET adaptation; NLI transfer; rationale supervision; expert routing.",
+      "validation": "Source-held-out folds; independent confirmation of apparent gains.",
+      "retained": "Two-seed Japanese BERT + ordinal decoding."
+    },
+    {
+      "tag": "TASK 3 · MULTILINGUAL QA",
+      "title": "Compile facts, then test edits",
+      "models": "Eva-4B; Qwen 27B, 35B and 57B model trials",
+      "methods": "Typed fact graphs; constrained planning and realization; evidence filtering; sparse answer edits.",
+      "validation": "Company/report groups and older-to-newer packet confirmation.",
+      "retained": "Deterministic compiler + numeric provenance."
+    }
+  ],
+  "gates": [
+    {
+      "title": "Entity-aware adaptation · NER",
+      "score": "0.8064 → 0.7580",
+      "context": "Fold-0 macro entity F1. All entity types regressed; stop before the remaining folds.",
+      "status": "STOP"
+    },
+    {
+      "title": "ModernBERT replacement · ICR",
+      "score": "0.6917 → 0.6245",
+      "context": "Source-held-out accuracy. All five folds worsened; 14 corrections, 31 new errors.",
+      "status": "REJECT"
+    },
+    {
+      "title": "Qwen 35B fact filtering · QA",
+      "score": "0.7454 → 0.7638",
+      "context": "Fact-set F1 improved, but one company's score fell 0.0544; the safety gate failed.",
+      "status": "REJECT"
+    },
+    {
+      "title": "Conservative span consensus · NER",
+      "score": "0.9208 → 0.9332",
+      "context": "80-row validation: 4 corrections, 0 new errors. Two-seed support; retained for development.",
+      "status": "KEEP"
+    }
+  ],
+  "qa_compiler": [
+    ["Parse", "Statements + news"],
+    ["Type facts", "Period, unit, value"],
+    ["Validate", "Source + arithmetic"],
+    ["Realize", "≤100 words"]
+  ],
+  "qa_scores": [
+    {"label": "Grounded baseline", "score": 0.3652420227711404, "kind": "baseline"},
+    {"label": "Sparse-edit oracle", "score": 0.40295015643699883, "kind": "oracle"},
+    {"label": "Deployable selector", "score": 0.3652420227711404, "kind": "selected"}
+  ],
+  "final_cards": [
+    {
+      "title": "NER · exact retrieval",
+      "stat": "200/200",
+      "detail": "test queries matched earlier public inputs",
+      "note": "Final: retrieve full-query references."
+    },
+    {
+      "title": "ICR · semantic rules",
+      "stat": "4/15 → 15/15",
+      "detail": "public correct: BERT → explicit-cue rubric",
+      "note": "New response style changed the choice."
+    },
+    {
+      "title": "QA · exact retrieval",
+      "stat": "0.9994 / 0.3726",
+      "detail": "public (24) / private (52) ROUGE-1 F1",
+      "note": "76/76 queries matched public inputs."
+    }
+  ],
+  "closing_title": "Benchmark success and generalization evidence can diverge.",
+  "closing_lines": [
+    "The QA score gap suggests reference-version shift; private references were unavailable.",
+    "Our input-based systems handle new inputs, but private superiority over retrieval was not measured."
+  ],
+  "paper_id": "FinNLP-65",
+  "materials_url": "https://github.com/gautiermarti/fineval-2026-adml"
+}
